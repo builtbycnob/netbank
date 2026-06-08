@@ -4,7 +4,7 @@
 
 ## What we're building
 
-A **data-driven business neobank + embedded lender** for **freelancers, agencies, and bootstrapped startups** — small, **cash-flow-positive** companies (**< 10 employees, ~€10k–€1M revenue**) that have real revenue but **lack fast, flexible, intelligent financing**.
+A **data-driven business neobank + embedded lender** for **freelancers, agencies, and bootstrapped startups** — from a **solo freelancer up to a 2–10-employee company**, small **cash-flow-positive** businesses (**~€10k–€1M revenue**) that have real revenue but **lack fast, flexible, intelligent financing**. **Geography: Spain / EU first.**
 
 **Inspiration:** **Mercury** (the dashboard, the calm/structured business-banking experience) + **WeBank / MyBank** (live-data underwriting and financial inclusion at near-zero decision cost). Visual baseline: **Stripe + Revolut**, **dark**, professional.
 
@@ -56,9 +56,14 @@ We sit inside the customer's financial operations — bank accounts, accounting,
 
 **Still holds:** financial-health objective (not fee/engagement extraction); **non-credit autonomous core + human-on-the-loop on the credit decision** (EU AI Act Annex III); the WeBank/MyBank cost-economics case; the underserved-but-real-revenue target.
 
-## Open decisions to confirm
-1. **Segment lower bound & breadth** — include solo freelancers, or focus on 2–10-employee companies? (changes multi-seat/cards emphasis and WTP).
-2. **Final bottom-nav tabs** (4 vs 5; is Financing its own tab or a Home hero?).
-3. **Geography** — Spain-first (our evidence base) or EU/global framing?
-4. **Name** — "NetBank" is a placeholder.
-5. **Lender licensing** — hold a credit licence vs originate-and-refer to a partner (changes risk & margin).
+## Decisions
+
+**Confirmed (2026-06-08)**
+- ✅ **Segment:** solo freelancer **up to 2–10 employees** (both ends in scope; multi-seat/cards matter for the 2–10 tier).
+- ✅ **Geography:** **Spain / EU first.**
+- ✅ **Differentiation:** the underserved-but-real-revenue / embedded-lender angle is good — **keep exploring additional differentiators** (the design recon will surface more).
+
+**Still open**
+- **Final bottom-nav tabs** (4 vs 5; is Financing its own tab or a Home hero?).
+- **Name** — "NetBank" is a placeholder.
+- **Lender licensing** — hold a credit licence vs originate-and-refer to a partner (changes risk & margin).

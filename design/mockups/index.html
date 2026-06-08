@@ -19,11 +19,11 @@
       <span>working name · v0.1</span>
     </div>
     <h1>The money instrument for businesses that run on <em>lumpy income</em>.</h1>
-    <p>Dark, calm, Mercury-structured. The complexity — forecasting, categorization, underwriting — lives underneath; on top, one number and one decision. Below: the first three screens, fully interactive-looking, for the team to evaluate.</p>
+    <p>Dark, calm, Mercury-structured. The complexity — forecasting, categorization, underwriting — lives underneath; on top, one number and one decision. Below: the full v0.1 app — 8 screens, including the 3 home concepts (A / B / C) to choose between.</p>
     <div class="note">
-      <span class="pill">Home shown = concept A · “Command Center”</span>
-      <span class="pill">Concepts B & C + Cards / Invoices / Services — generating</span>
-      <span class="pill">Evaluate → which home wins? is it calm enough? clicks per task?</span>
+      <span class="pill">3 home concepts — A “Command Center” (recommended) · B “Cash-Flow Story” · C “One Decision”</span>
+      <span class="pill">+ Financing · Transactions · Cards · Invoices/OCR · Services</span>
+      <span class="pill">Evaluate → which home wins? calm enough? clicks per task?</span>
     </div>
   </header>
 
@@ -206,6 +206,425 @@
       </div>
       <div class="frame-label"><b>3 · Transactions</b><small>Clean, filterable. SaaS &amp; AI spend broken out as its own bucket — a fast-growing, opaque cost for this segment.</small></div>
     </div>
+
+    <div class="frame-wrap">
+      <div class="phone">
+        <div class="screen">
+          <div class="statusbar">
+            <span>9:41</span>
+            <div class="dots">
+              <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><path d="M8.5 2.5C10.6 2.5 12.5 3.3 14 4.7l1.1-1.1A9 9 0 0 0 1.9 3.6L3 4.7A7.5 7.5 0 0 1 8.5 2.5Z"/><path d="M8.5 6C9.6 6 10.6 6.4 11.3 7.1l1.1-1.1A6 6 0 0 0 4.6 6l1.1 1.1A4.5 4.5 0 0 1 8.5 6Z"/><circle cx="8.5" cy="9.5" r="1.6"/></svg>
+              <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="1" y="1.5" width="21" height="10" rx="3" stroke="currentColor" opacity=".4"/><rect x="3" y="3.5" width="15" height="6" rx="1.5" fill="currentColor"/><rect x="23.5" y="4.5" width="1.5" height="4" rx=".75" fill="currentColor" opacity=".5"/></svg>
+            </div>
+          </div>
+          <div class="appbar">
+            <div class="hi"><small>Good morning</small><b>Atlas Studio</b></div>
+            <div class="avatar">AS</div>
+          </div>
+          <div class="scroll">
+            <div class="card reveal" style="animation-delay:.04s">
+              <div class="cash">
+                <div class="lbl">Cash-flow story · next 90 days <span class="ai predict">forecast</span></div>
+                <svg width="100%" height="160" viewBox="0 0 300 160" fill="none" preserveAspectRatio="none" style="margin-top:8px;display:block">
+                  <defs>
+                    <linearGradient id="cfPast" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#7FE7A6" stop-opacity=".22"/><stop offset="1" stop-color="#7FE7A6" stop-opacity="0"/></linearGradient>
+                    <linearGradient id="cfFwd" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#74B2FF" stop-opacity=".16"/><stop offset="1" stop-color="#74B2FF" stop-opacity="0"/></linearGradient>
+                  </defs>
+                  <!-- gridlines -->
+                  <line x1="0" y1="40" x2="300" y2="40" stroke="#fff" stroke-opacity=".05"/>
+                  <line x1="0" y1="90" x2="300" y2="90" stroke="#fff" stroke-opacity=".05"/>
+                  <line x1="0" y1="140" x2="300" y2="140" stroke="#fff" stroke-opacity=".05"/>
+                  <!-- tight-week shaded marker (early Aug) -->
+                  <rect x="206" y="6" width="26" height="140" fill="#F5C265" fill-opacity=".10"/>
+                  <line x1="219" y1="6" x2="219" y2="146" stroke="#F5C265" stroke-opacity=".5" stroke-width="1" stroke-dasharray="3 3"/>
+                  <!-- past area + line (Mar → today) -->
+                  <path d="M0 96 L30 88 L60 92 L90 74 L120 80 L150 58 L168 50 L168 146 L0 146 Z" fill="url(#cfPast)"/>
+                  <path d="M0 96 L30 88 L60 92 L90 74 L120 80 L150 58 L168 50" stroke="#7FE7A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- forecast area + line (today → +90d), dips through the tight week -->
+                  <path d="M168 50 L196 60 L219 96 L246 78 L274 54 L300 44 L300 146 L168 146 Z" fill="url(#cfFwd)"/>
+                  <path d="M168 50 L196 60 L219 96 L246 78 L274 54 L300 44" stroke="#74B2FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4"/>
+                  <!-- today vertical line + node -->
+                  <line x1="168" y1="6" x2="168" y2="146" stroke="#ECEEF1" stroke-opacity=".5" stroke-width="1"/>
+                  <circle cx="168" cy="50" r="3.4" fill="#ECEEF1"/>
+                  <!-- tight-week low node -->
+                  <circle cx="219" cy="96" r="3" fill="#F5C265"/>
+                </svg>
+                <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--text-3);margin-top:2px;padding:0 1px">
+                  <span>Mar</span><span style="color:var(--text-2)">today</span><span style="color:var(--amber)">Aug</span><span>Sep</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card reveal" style="animation-delay:.1s;display:flex;align-items:center;gap:11px;padding:13px 14px">
+              <span class="delta up" style="flex:none">On track</span>
+              <div style="font-size:13px;color:var(--text-2);line-height:1.45">Runway <b style="color:var(--text);font-weight:500">7.1 months</b> · one tight week forecast in <b style="color:var(--amber);font-weight:500">early Aug</b></div>
+            </div>
+
+            <div class="tiles reveal" style="animation-delay:.16s">
+              <div class="tile"><div class="k">Burn / mo</div><div class="n">€18.2k</div><div class="s" style="color:var(--text-2)">−€1.1k vs last</div></div>
+              <div class="tile"><div class="k">Runway</div><div class="n">7.1<span style="font-size:12px;color:var(--text-3)"> mo</span></div><div class="s" style="color:var(--mint)">healthy</div></div>
+              <div class="tile"><div class="k">Revenue</div><div class="n">€31.0k</div><div class="s" style="color:var(--mint)">▲ 9%</div></div>
+            </div>
+
+            <div class="eyebrow">The tight week · early August</div>
+            <div class="card reveal" style="animation-delay:.22s">
+              <div class="bucket"><div class="ico">📩</div><div class="bd"><div class="t"><b>Vodafone invoice · €9,200</b><span class="m" style="color:var(--amber)">+20d late</span></div><div class="track a"><i style="width:72%"></i></div></div></div>
+              <div style="display:flex;align-items:center;gap:7px;margin-top:9px;font-size:12px;color:var(--text-2);line-height:1.45">
+                <span class="ai predict" style="flex:none">predict</span>
+                Vodafone usually pays <b style="color:var(--text);font-weight:500">+20 days</b> — that's what pinches the week of Aug 4. Payroll lands the same week.
+              </div>
+            </div>
+
+            <div class="card reveal" style="animation-delay:.28s;display:flex;align-items:center;gap:10px;padding:13px 14px;border-style:dashed">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:var(--text-3);flex:none"><path d="M3 10h18M7 14h4"/><rect x="3" y="5" width="18" height="14" rx="2.5"/></svg>
+              <div style="flex:1;font-size:12px;color:var(--text-3);line-height:1.4">If you'd rather not wait, <b style="color:var(--text-2);font-weight:500">€25,000 is safe to borrow</b> for this gap.</div>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-3);flex:none"><path d="M9 6l6 6-6 6"/></svg>
+            </div>
+          </div>
+
+          <nav class="tabbar">
+            <div class="tab on"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Home</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18"/></svg>Cards</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg>Activity</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 13h5M9.5 16.5h5"/></svg>Invoices</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><path d="M13 3 5 13h6l-1 8 8-10h-6z"/></svg>Finance</div>
+          </nav>
+        </div>
+      </div>
+      <div class="frame-label"><b>Home concept B — “Cash-Flow Story”</b><small>Forecast-first home: a runway timeline with the one tight week called out, plus the client who causes it. Borrowing is a faint footnote, never a CTA.</small></div>
+    </div>
+
+    <div class="frame-wrap">
+      <div class="phone">
+        <div class="screen">
+          <div class="statusbar">
+            <span>9:41</span>
+            <div class="dots">
+              <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><path d="M8.5 2.5C10.6 2.5 12.5 3.3 14 4.7l1.1-1.1A9 9 0 0 0 1.9 3.6L3 4.7A7.5 7.5 0 0 1 8.5 2.5Z"/><path d="M8.5 6C9.6 6 10.6 6.4 11.3 7.1l1.1-1.1A6 6 0 0 0 4.6 6l1.1 1.1A4.5 4.5 0 0 1 8.5 6Z"/><circle cx="8.5" cy="9.5" r="1.6"/></svg>
+              <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="1" y="1.5" width="21" height="10" rx="3" stroke="currentColor" opacity=".4"/><rect x="3" y="3.5" width="15" height="6" rx="1.5" fill="currentColor"/><rect x="23.5" y="4.5" width="1.5" height="4" rx=".75" fill="currentColor" opacity=".5"/></svg>
+            </div>
+          </div>
+          <div class="appbar">
+            <div class="hi"><small>Good morning</small><b>Atlas Studio</b></div>
+            <div class="avatar">AS</div>
+          </div>
+          <div class="scroll">
+            <div class="eyebrow">One decision now</div>
+
+            <div class="card borrow reveal" style="animation-delay:.04s">
+              <div class="top"><span>NOTHING NEEDS YOU</span><span class="ai predict">predict</span></div>
+              <div class="amt" style="display:flex;align-items:center;gap:12px;font-size:26px">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#7FE7A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="m8 12.5 2.5 2.5L16 9"/></svg>
+                All clear today
+              </div>
+              <div class="why">No approvals, no shortfalls, no due dates. <b>Runway 7.1 mo</b>
+                <svg width="14" height="14" viewBox="0 0 120 30" fill="none" style="margin-left:2px"><path d="M0 22 L20 19 L40 21 L60 14 L80 16 L100 8 L120 5" stroke="#7FE7A6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div style="margin-top:14px;position:relative;z-index:1">
+                <span class="badge"><i class="dot"></i>€0 borrowed this quarter — you didn't need to</span>
+              </div>
+            </div>
+
+            <div class="eyebrow">If something needed you, it'd look like this</div>
+
+            <div class="card reveal" style="animation-delay:.12s">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <div class="cash" style="padding:0">
+                  <div class="lbl" style="margin-bottom:4px">Approve rent · due tomorrow <span class="ai recommend">recommend</span></div>
+                  <div class="v" style="font-size:30px">€1,450<span class="cents">.00</span></div>
+                </div>
+              </div>
+              <div class="why" style="margin-top:8px;color:var(--text-2);font-size:12.5px;display:flex;align-items:center;gap:6px">
+                WeWork · covered by cash on hand · <b style="color:var(--text)">no borrowing needed</b>
+              </div>
+              <button class="btn primary">Approve €1,450</button>
+              <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:10px;color:var(--text-3);font-size:11.5px;font-family:var(--mono)">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-1"/></svg>
+                Auto-pays in 6h unless you change it · undo anytime
+              </div>
+            </div>
+
+            <div class="eyebrow">Everything else</div>
+
+            <div class="card reveal" style="animation-delay:.2s" style="margin-top:0">
+              <div class="row" style="padding-top:4px">
+                <div class="ic">📊</div>
+                <div class="mid">
+                  <b>€128,450 cash · 312 transactions</b>
+                  <small>Burn €18.2k/mo · revenue €31.0k · all reconciled</small>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <nav class="tabbar">
+            <div class="tab on"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Home</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18"/></svg>Cards</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg>Activity</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 13h5M9.5 16.5h5"/></svg>Invoices</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><path d="M13 3 5 13h6l-1 8 8-10h-6z"/></svg>Finance</div>
+          </nav>
+        </div>
+      </div>
+      <div class="frame-label"><b>Home — concept C · "One Decision Now"</b><small>Radically minimal. One Decision Card answers "is anything wrong?" — calm by default, with the approve-rent state as the alternative. Cash &amp; transactions collapse to one tappable line.</small></div>
+    </div>
+
+    <div class="frame-wrap">
+      <div class="phone">
+        <div class="screen">
+          <div class="statusbar">
+            <span>9:41</span>
+            <div class="dots">
+              <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><path d="M8.5 2.5C10.6 2.5 12.5 3.3 14 4.7l1.1-1.1A9 9 0 0 0 1.9 3.6L3 4.7A7.5 7.5 0 0 1 8.5 2.5Z"/><path d="M8.5 6C9.6 6 10.6 6.4 11.3 7.1l1.1-1.1A6 6 0 0 0 4.6 6l1.1 1.1A4.5 4.5 0 0 1 8.5 6Z"/><circle cx="8.5" cy="9.5" r="1.6"/></svg>
+              <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="1" y="1.5" width="21" height="10" rx="3" stroke="currentColor" opacity=".4"/><rect x="3" y="3.5" width="15" height="6" rx="1.5" fill="currentColor"/><rect x="23.5" y="4.5" width="1.5" height="4" rx=".75" fill="currentColor" opacity=".5"/></svg>
+            </div>
+          </div>
+          <div class="appbar"><div class="hi"><small>Accounts &amp; cards</small><b>Wallet</b></div><div class="avatar">AS</div></div>
+          <div class="scroll">
+            <div class="chips reveal" style="animation-delay:.03s">
+              <span class="chip on">Main · €92,180</span><span class="chip">Tax reserve · €24,150</span><span class="chip">Savings · €12,120</span>
+            </div>
+
+            <div class="card borrow reveal" style="animation-delay:.08s;margin-top:8px;border-color:rgba(116,178,255,.28);background:linear-gradient(150deg,rgba(116,178,255,.16),rgba(127,231,166,.05) 60%),var(--surface-2)">
+              <div class="top">
+                <span style="display:flex;align-items:center;gap:8px;color:var(--text)"><span style="width:22px;height:22px;border-radius:7px;background:linear-gradient(150deg,var(--mint),#3FB47B);display:grid;place-items:center;color:#06281A;font-family:var(--display);font-weight:800;font-size:13px">N</span><span style="font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--text-2)">VIRTUAL · MAIN</span></span>
+                <span class="badge"><i class="dot"></i>active</span>
+              </div>
+              <div class="amt" style="font-size:22px;letter-spacing:.18em;margin:26px 0 10px">•••• •••• •••• 4242</div>
+              <div class="why" style="justify-content:space-between">
+                <span style="display:flex;flex-direction:column;gap:2px"><small style="color:var(--text-3);font-size:10px;font-family:var(--mono);letter-spacing:.08em">CARDHOLDER</small><b>Atlas Studio SL</b></span>
+                <span style="display:flex;flex-direction:column;gap:2px;text-align:right"><small style="color:var(--text-3);font-size:10px;font-family:var(--mono);letter-spacing:.08em">EXPIRES</small><b style="font-family:var(--mono)">09 / 28</b></span>
+              </div>
+            </div>
+
+            <div class="eyebrow">Team cards · 4 active</div>
+            <div class="card reveal" style="animation-delay:.16s">
+              <div class="row">
+                <div class="ic" style="background:linear-gradient(140deg,#2a323c,#171c23);color:var(--text-2);font-size:13px;font-weight:600;font-family:var(--mono)">MR</div>
+                <div class="mid"><b>Marc Riera</b><small>€820 of €1,500 this month</small></div>
+                <div style="display:flex;align-items:center;gap:9px"><span class="badge" style="padding:3px 8px">unfrozen</span></div>
+              </div>
+              <div class="row">
+                <div class="ic" style="background:linear-gradient(140deg,#2a323c,#171c23);color:var(--text-2);font-size:13px;font-weight:600;font-family:var(--mono)">SL</div>
+                <div class="mid"><b>Sara Lund</b><small>€1,840 of €2,000 this month</small><div style="margin-top:5px"><span class="ai recommend">near limit</span></div></div>
+                <div style="display:flex;align-items:center;gap:9px"><span class="badge" style="padding:3px 8px">unfrozen</span></div>
+              </div>
+              <div class="row">
+                <div class="ic" style="background:linear-gradient(140deg,#2a323c,#171c23);color:var(--text-2);font-size:13px;font-weight:600;font-family:var(--mono)">DK</div>
+                <div class="mid"><b>Diego Kovač</b><small>€460 of €1,000 this month</small></div>
+                <div style="display:flex;align-items:center;gap:9px"><span class="badge" style="padding:3px 8px">unfrozen</span></div>
+              </div>
+              <div class="row">
+                <div class="ic" style="background:linear-gradient(140deg,#22282f,#14181d);color:var(--text-3);font-size:13px;font-weight:600;font-family:var(--mono)">PN</div>
+                <div class="mid"><b>Priya Nair</b><small style="color:var(--text-3)">€0 of €800 · paused</small></div>
+                <div style="display:flex;align-items:center;gap:9px"><span class="badge" style="padding:3px 8px;color:var(--blue);border-color:rgba(116,178,255,.3)">frozen</span></div>
+              </div>
+            </div>
+
+            <div class="insight reveal" style="animation-delay:.22s;margin-top:12px;background:var(--mint-dim);border-color:rgba(127,231,166,.24)">
+              <div class="ic" style="color:var(--mint)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
+              <div><b>Sara's limit was auto-raised €200.</b><p>She hit 92% three days running. Reverts next cycle. <b style="color:var(--text)">Undo</b> · <b style="color:var(--text)">keep</b><span style="margin-left:8px"><span class="ai act">act</span></span></p></div>
+            </div>
+
+            <button class="btn primary">Add a card</button>
+          </div>
+
+          <nav class="tabbar">
+            <div class="tab"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Home</div>
+            <div class="tab on"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18"/></svg>Cards</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg>Activity</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 13h5M9.5 16.5h5"/></svg>Invoices</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><path d="M13 3 5 13h6l-1 8 8-10h-6z"/></svg>Finance</div>
+          </nav>
+        </div>
+      </div>
+      <div class="frame-label"><b>6 · Cards — accounts &amp; team cards</b><small>Account switcher, the virtual Main card, and per-employee cards Revolut-style with freeze toggles. AI flags near-limit and shows an undoable auto-raise.</small></div>
+    </div>
+
+    <div class="frame-wrap">
+      <div class="phone">
+        <div class="screen">
+          <div class="statusbar">
+            <span>9:41</span>
+            <div class="dots">
+              <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><path d="M8.5 2.5C10.6 2.5 12.5 3.3 14 4.7l1.1-1.1A9 9 0 0 0 1.9 3.6L3 4.7A7.5 7.5 0 0 1 8.5 2.5Z"/><path d="M8.5 6C9.6 6 10.6 6.4 11.3 7.1l1.1-1.1A6 6 0 0 0 4.6 6l1.1 1.1A4.5 4.5 0 0 1 8.5 6Z"/><circle cx="8.5" cy="9.5" r="1.6"/></svg>
+              <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="1" y="1.5" width="21" height="10" rx="3" stroke="currentColor" opacity=".4"/><rect x="3" y="3.5" width="15" height="6" rx="1.5" fill="currentColor"/><rect x="23.5" y="4.5" width="1.5" height="4" rx=".75" fill="currentColor" opacity=".5"/></svg>
+            </div>
+          </div>
+          <div class="appbar"><div class="hi"><small>Invoices &amp; payments</small><b>Bills &amp; receivables</b></div><div class="avatar">AS</div></div>
+          <div class="scroll">
+
+            <div class="eyebrow">Just scanned · 1 invoice captured</div>
+            <div class="card reveal" style="animation-delay:.04s">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div class="ic" style="width:44px;height:44px;border-radius:11px;background:var(--surface-2);display:grid;place-items:center;flex:none">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:var(--text-2)"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 13h5M9.5 16.5h5"/></svg>
+                  </div>
+                  <div>
+                    <b style="font-size:14.5px;font-weight:600;display:block">Acme Manufacturing</b>
+                    <small style="color:var(--text-3);font-size:11.5px;font-family:var(--mono)">invoice_0419.pdf · read in 0.8s</small>
+                  </div>
+                </div>
+                <span class="ai act">act</span>
+              </div>
+
+              <div style="margin-top:13px;border-top:1px solid var(--line-2);padding-top:11px">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0">
+                  <span style="color:var(--text-3);font-size:11px;font-family:var(--mono)">VENDOR</span>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <b style="font-size:14px;font-weight:500">Acme Manufacturing</b>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-3)"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+                  </div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid var(--line-2)">
+                  <span style="color:var(--text-3);font-size:11px;font-family:var(--mono)">AMOUNT</span>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <b class="bignum" style="font-size:16px">€3,420.00</b>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-3)"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+                  </div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid var(--line-2)">
+                  <span style="color:var(--text-3);font-size:11px;font-family:var(--mono)">DUE</span>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <b style="font-size:14px;font-weight:500;font-family:var(--mono)">24 Jun</b>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-3)"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+                  </div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid var(--line-2)">
+                  <span style="color:var(--text-3);font-size:11px;font-family:var(--mono)">CATEGORY</span>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <span class="chip on" style="font-size:11.5px;padding:4px 10px">Operations</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-3)"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top:11px;display:flex;align-items:center;gap:6px;color:var(--text-3);font-size:11.5px">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 3 5 13h6l-1 8 8-10h-6z"/></svg>
+                <span>AI extracted · tap any field to edit</span>
+              </div>
+              <button class="btn primary">Save &amp; schedule payment</button>
+            </div>
+
+            <div class="eyebrow">Bills to pay · outgoing</div>
+            <div class="card reveal" style="animation-delay:.12s">
+              <div class="row"><div class="ic">🏭</div><div class="mid"><b>Acme Manufacturing</b><small>Operations · due 24 Jun · in 16d</small></div><div class="amt">−€3,420.00</div></div>
+              <div class="row"><div class="ic">🏢</div><div class="mid"><b>WeWork · office rent</b><small>Operations · due 11 Jun · in 3d</small></div><div class="amt">−€1,450.00</div></div>
+              <div class="row"><div class="ic">🤖</div><div class="mid"><b>Anthropic · Claude</b><small>SaaS &amp; AI · auto-pay 1 Jul</small></div><div class="amt">−€420.00</div></div>
+            </div>
+
+            <div class="insight reveal" style="animation-delay:.18s;margin-top:12px">
+              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/></svg></div>
+              <div>
+                <div style="display:flex;align-items:center;gap:8px"><b>Acme bill scheduled for 24 Jun.</b><span class="ai act">act</span></div>
+                <p>We'll pay it 2 days early if cash stays above runway. <b style="color:var(--text)">Undo</b> or change the date anytime.</p>
+              </div>
+            </div>
+
+            <div class="eyebrow">Invoices owed to you · incoming</div>
+            <div class="card reveal" style="animation-delay:.24s">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px">
+                <span style="color:var(--text-2);font-size:13px">Outstanding · 4 clients</span>
+                <span class="bignum" style="font-size:18px;color:var(--mint)">€21,300</span>
+              </div>
+              <div class="row"><div class="ic">📡</div><div class="mid"><b>Vodafone</b><small>Sent 30 May · €9,200</small></div><div class="amt in">expected +9d</div></div>
+              <div class="row"><div class="ic">🛍️</div><div class="mid"><b>Mango Retail</b><small>Sent 2 Jun · €6,400</small></div><div class="amt in">expected +18d</div></div>
+              <div class="row"><div class="ic">🏦</div><div class="mid"><b>Caixa Studio</b><small>Sent 21 May · €5,700</small></div><div class="amt" style="color:var(--amber)">expected +31d</div></div>
+              <p style="color:var(--text-3);font-size:11.5px;margin-top:11px;font-family:var(--mono);display:flex;align-items:center;gap:6px">
+                <span class="ai predict">predict</span> Pay-dates from each client's 85-day average
+              </p>
+            </div>
+
+            <button class="btn ghost" style="margin-top:14px">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="6" width="18" height="14" rx="2.5"/><path d="M8 6l1.5-2h5L16 6"/><circle cx="12" cy="13" r="3.5"/></svg>
+              Scan an invoice
+            </button>
+          </div>
+
+          <nav class="tabbar">
+            <div class="tab"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Home</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18"/></svg>Cards</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg>Activity</div>
+            <div class="tab on"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 13h5M9.5 16.5h5"/></svg>Invoices</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><path d="M13 3 5 13h6l-1 8 8-10h-6z"/></svg>Finance</div>
+          </nav>
+        </div>
+      </div>
+      <div class="frame-label"><b>7 · Invoices — OCR capture</b><small>Scan an invoice; fields auto-extract and stay editable. AP bills to pay and AR with per-client expected-pay forecasts.</small></div>
+    </div>
+
+    <div class="frame-wrap">
+  <div class="phone">
+    <div class="screen">
+      <div class="statusbar">
+        <span>9:41</span>
+        <div class="dots">
+          <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><path d="M8.5 2.5C10.6 2.5 12.5 3.3 14 4.7l1.1-1.1A9 9 0 0 0 1.9 3.6L3 4.7A7.5 7.5 0 0 1 8.5 2.5Z"/><path d="M8.5 6C9.6 6 10.6 6.4 11.3 7.1l1.1-1.1A6 6 0 0 0 4.6 6l1.1 1.1A4.5 4.5 0 0 1 8.5 6Z"/><circle cx="8.5" cy="9.5" r="1.6"/></svg>
+          <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="1" y="1.5" width="21" height="10" rx="3" stroke="currentColor" opacity=".4"/><rect x="3" y="3.5" width="15" height="6" rx="1.5" fill="currentColor"/><rect x="23.5" y="4.5" width="1.5" height="4" rx=".75" fill="currentColor" opacity=".5"/></svg>
+        </div>
+      </div>
+      <div class="appbar"><div class="hi"><small>Services</small><b>Find an expert</b></div><div class="avatar">AS</div></div>
+      <div class="scroll">
+        <div class="search reveal" style="animation-delay:.03s">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Find a CFO, lawyer, accountant…
+        </div>
+        <div class="chips reveal" style="animation-delay:.07s">
+          <span class="chip on">All</span><span class="chip">CFO</span><span class="chip">Legal</span><span class="chip">Tax</span><span class="chip">Compliance</span>
+        </div>
+
+        <div class="insight reveal" style="animation-delay:.1s;margin-top:8px;background:var(--blue-dim);border-color:rgba(116,178,255,.28)">
+          <div class="ic" style="color:var(--blue)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div>
+          <div><b>Vetted, not commission-driven.</b><p>Hand-picked partners for small teams. You book direct — NetBank doesn't take a cut of the work, and your books stay in sync.</p></div>
+        </div>
+
+        <div class="eyebrow">Partners for Atlas Studio</div>
+
+        <div class="card reveal" style="animation-delay:.14s">
+          <div class="row" style="border:none;padding:2px 0 12px">
+            <div class="ic" style="font-size:17px">📊</div>
+            <div class="mid"><b>Fractional CFO</b><small>Runway &amp; pricing · from €400 / mo</small></div>
+            <div class="ai recommend">recommend</div>
+          </div>
+          <p style="color:var(--text-2);font-size:12.5px;line-height:1.5">A part-time finance lead who reads your cash-flow with you. Good fit at your 7.1-month runway.</p>
+          <button class="btn ghost">Book a fit call</button>
+        </div>
+
+        <div class="card reveal" style="animation-delay:.2s">
+          <div class="row" style="border:none;padding:2px 0 12px">
+            <div class="ic" style="font-size:17px">⚖️</div>
+            <div class="mid"><b>Startup lawyer</b><small>Contracts &amp; equity · 30-min intro</small></div>
+            <span class="badge"><i class="dot"></i>vetted</span>
+          </div>
+          <p style="color:var(--text-2);font-size:12.5px;line-height:1.5">Client agreements, MSAs and late-payment terms — useful when clients pay ~85 days late.</p>
+          <button class="btn ghost">Book a 30-min call</button>
+        </div>
+
+        <div class="card reveal" style="animation-delay:.26s">
+          <div class="row" style="border:none;padding:2px 0 12px">
+            <div class="ic" style="font-size:15px;font-weight:700;color:var(--mint)">D</div>
+            <div class="mid"><b>Tax &amp; IVA filing — Declarando</b><small>Quarterly &amp; annual · from €35 / mo</small></div>
+            <span class="ai predict">tracked</span>
+          </div>
+          <p style="color:var(--text-2);font-size:12.5px;line-height:1.5">Your filings, handled. Pulls straight from your NetBank transactions — no spreadsheet export.</p>
+          <button class="btn ghost">Book onboarding</button>
+        </div>
+
+        <p style="color:var(--text-3);font-size:11.5px;font-family:var(--mono);text-align:center;margin:16px 2px 2px">Compliance &amp; bookkeeping partners → see all</p>
+      </div>
+
+      <nav class="tabbar">
+        <div class="tab"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Home</div>
+        <div class="tab"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18"/></svg>Cards</div>
+        <div class="tab"><svg viewBox="0 0 24 24"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg>Activity</div>
+        <div class="tab"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 13h5M9.5 16.5h5"/></svg>Invoices</div>
+        <div class="tab on"><svg viewBox="0 0 24 24"><path d="M13 3 5 13h6l-1 8 8-10h-6z"/></svg>Finance</div>
+      </nav>
+    </div>
+  </div>
+  <div class="frame-label"><b>Services — partner marketplace</b><small>Vetted CFOs, lawyers &amp; tax partners booked direct, books auto-synced. Lives under “More” / Finance-adjacent in the final nav.</small></div>
+</div>
 
   </div>
 </div>

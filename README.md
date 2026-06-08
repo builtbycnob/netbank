@@ -35,6 +35,7 @@ This split is what lets the "AI-factory" cost economics and EU compliance coexis
 - 🔄 Mobile experience design — HMW + decision map + screen map in progress (see [`docs/02-mobile-experience.md`](docs/02-mobile-experience.md))
 - ⬜ Screen mockups (3 home concepts + hero flow) — generating
 - ⬜ Agentic loan journey (Session 8)
+- 🔄 Data & underwriting spec — the moat, specified (data dictionary, gates, cold-start→closed-loop) (see [`docs/05-data-and-underwriting.md`](docs/05-data-and-underwriting.md))
 - ⬜ Prototype + final deck
 
 ## Repo structure
@@ -45,6 +46,7 @@ docs/
   01-client-and-evidence.md    ← chosen client, VP, verified numbers + sources
   02-mobile-experience.md      ← HMW, design principles, screen map, decisions
   03-design-spec.md            ← (generated) decision-driven screen specs + hero flow
+  05-data-and-underwriting.md  ← data dictionary, underwriting gates, cold-start→closed-loop (the moat, specified)
 design/                        ← (coming) mockups / image briefs
 ```
 

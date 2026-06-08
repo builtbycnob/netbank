@@ -31,11 +31,12 @@ This split is what lets the "AI-factory" cost economics and EU compliance coexis
 
 ## Status
 
-- ✅ Client + value proposition — **converged & evidence-backed** (see [`docs/01-client-and-evidence.md`](docs/01-client-and-evidence.md))
-- 🔄 Mobile experience design — HMW + decision map + screen map in progress (see [`docs/02-mobile-experience.md`](docs/02-mobile-experience.md))
-- ⬜ Screen mockups (3 home concepts + hero flow) — generating
-- ⬜ Agentic loan journey (Session 8)
-- ⬜ Prototype + final deck
+- ✅ Client + value proposition — **converged & evidence-backed** ([`docs/01`](docs/01-client-and-evidence.md))
+- ✅ Mobile experience — HMW + decision map + screen map ([`docs/02`](docs/02-mobile-experience.md)) · design spec ([`docs/03`](docs/03-design-spec.md)) · slides ([`docs/04`](docs/04-slides-mobile-experience.md))
+- ✅ **8 dark mockups live** → https://builtbycnob.github.io/netbank/ (3 home concepts A/B/C — **A "Command Center" recommended**)
+- ✅ Predictive AI ([`docs/05`](docs/05-predictive-ai.md)) · data frontier ([`docs/06`](docs/06-predictive-frontier.md)) · services marketplace ([`docs/07`](docs/07-services-marketplace.md))
+- ⬜ Agentic loan journey (Session 8 — Role of AI)
+- ⬜ Final deck assembly (8 rubric dimensions) + team picks home concept
 
 ## Repo structure
 

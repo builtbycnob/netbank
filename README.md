@@ -36,6 +36,7 @@ This split is what lets the "AI-factory" cost economics and EU compliance coexis
 - ⬜ Screen mockups (3 home concepts + hero flow) — generating
 - ⬜ Agentic loan journey (Session 8)
 - 🔄 Data & underwriting spec — the moat, specified (data dictionary, gates, cold-start→closed-loop) (see [`docs/05-data-and-underwriting.md`](docs/05-data-and-underwriting.md))
+- 🔄 Proprietary data moat — the niche, controlled (payer-reliability graph, Tier-1 vs Tier-2, instrument-from-day-one) (see [`docs/06-proprietary-data-moat.md`](docs/06-proprietary-data-moat.md))
 - ⬜ Prototype + final deck
 
 ## Repo structure
@@ -47,6 +48,7 @@ docs/
   02-mobile-experience.md      ← HMW, design principles, screen map, decisions
   03-design-spec.md            ← (generated) decision-driven screen specs + hero flow
   05-data-and-underwriting.md  ← data dictionary, underwriting gates, cold-start→closed-loop (the moat, specified)
+  06-proprietary-data-moat.md  ← payer-reliability graph, Tier-1 vs Tier-2, instrument-from-day-one (the niche, controlled)
 design/                        ← (coming) mockups / image briefs
 ```
 

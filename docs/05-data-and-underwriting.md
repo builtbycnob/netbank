@@ -5,6 +5,8 @@
 > **Inherits from:** the architecture split in the [README](../README.md) (non-credit autonomous core vs. human-reviewed grant), the closed-loop moat in [`01-client-and-evidence.md`](01-client-and-evidence.md), and the Financing / Loan-Grant screens in [`03-design-spec.md`](03-design-spec.md) §4.8–4.9 & §5.
 >
 > **Defend-every-number rule applies here too.** Every external data source below carries a source URL. Read §7 (caveats) before the oral defense.
+>
+> **Read as a pair with [`06-proprietary-data-moat.md`](06-proprietary-data-moat.md):** this doc (`05`) is the **commodity gates that keep us solvent** — the underwriting stack any licensed lender holds. `06` is the **proprietary signal that wins the niche** — the realized cross-payer behavioural graph no incumbent can copy. `05` = don't-lose-money; `06` = control-the-niche.
 
 ---
 

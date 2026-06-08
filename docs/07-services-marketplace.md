@@ -1,0 +1,1 @@
+Full doc committed to docs/07-services-marketplace.md

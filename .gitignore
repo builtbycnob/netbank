@@ -1,0 +1,18 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Confidential course material — never commit
+*syllabus*
+*confidential*
+/private/
+
+# Node / build (if a prototype is added later)
+node_modules/
+dist/
+.env
+.env.*

@@ -35,7 +35,7 @@ This split is what lets the "AI-factory" cost economics and EU compliance coexis
 - ✅ Mobile experience — HMW + decision map + screen map ([`docs/02`](docs/02-mobile-experience.md)) · design spec ([`docs/03`](docs/03-design-spec.md)) · slides ([`docs/04`](docs/04-slides-mobile-experience.md))
 - ✅ **8 dark mockups live** → https://builtbycnob.github.io/netbank/ (3 home concepts A/B/C — **A "Command Center" recommended**)
 - ✅ Predictive AI ([`docs/05`](docs/05-predictive-ai.md)) · data frontier ([`docs/06`](docs/06-predictive-frontier.md)) · services marketplace ([`docs/07`](docs/07-services-marketplace.md))
-- ⬜ Agentic loan journey (Session 8 — Role of AI)
+- ✅ **Agentic loan journey** — Role of AI: 9-agent system + the "collections disappears" thesis + drop-in deck slide ([`docs/08`](docs/08-agentic-loan-journey.md))
 - ⬜ Final deck assembly (8 rubric dimensions) + team picks home concept
 
 ## Repo structure

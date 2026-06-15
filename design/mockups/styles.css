@@ -206,6 +206,31 @@ body::before{
 .tab.on{color:var(--mint)}
 .tab.on svg{filter:drop-shadow(0 0 6px rgba(127,231,166,.5))}
 
+/* center Scan/Pay action — raised FAB, sits in the middle tab slot */
+.tab-fab{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;background:none;border:none;padding:0;cursor:pointer;font-family:var(--mono)}
+.tab-fab .fab{width:50px;height:50px;border-radius:17px;margin-top:-24px;background:linear-gradient(150deg,var(--mint),#3FB47B);
+  display:grid;place-items:center;box-shadow:0 10px 22px -6px rgba(127,231,166,.55),0 0 0 5px var(--bg-2);transition:transform .15s}
+.tab-fab .fab svg{width:23px;height:23px;stroke:#06281A;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tab-fab:hover .fab{transform:translateY(-2px)}
+.tab-fab small{font-size:9.5px;letter-spacing:.02em;color:var(--mint)}
+
+/* next-best-service (Services v2) — single mint voltage, no human-review shield */
+.nbs{position:relative;overflow:hidden;border:1px solid rgba(127,231,166,.28);
+  background:linear-gradient(155deg,rgba(127,231,166,.12),rgba(127,231,166,.02) 55%),var(--surface)}
+.nbs::after{content:"";position:absolute;right:-50px;top:-40px;width:160px;height:160px;border-radius:50%;
+  background:radial-gradient(circle,rgba(127,231,166,.16),transparent 70%)}
+.nbs>*{position:relative;z-index:1}
+.nbs .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.nbs .hd .eyb{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
+.nbs .reason{font-size:13.5px;color:var(--text-2);line-height:1.5;margin-bottom:11px}
+.nbs .reason b{color:var(--text);font-weight:500}
+.nbs .svc{display:flex;align-items:center;gap:11px;padding:11px;border-radius:var(--r-sm);background:var(--surface-2);border:1px solid var(--line)}
+.nbs .svc .ico{width:34px;height:34px;border-radius:10px;background:var(--mint-dim);display:grid;place-items:center;flex:none}
+.nbs .svc .nm b{font-size:13.5px;font-weight:600;display:block}
+.nbs .svc .nm small{color:var(--text-3);font-size:11.5px}
+.nbs .deeplink{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:11px;color:#06281A;background:var(--mint);border-radius:11px;padding:12px;font-weight:600;font-size:13.5px}
+.nbs .src{margin-top:9px;display:flex;align-items:center;gap:6px;color:var(--text-3);font-size:11px;font-family:var(--mono);line-height:1.4}
+
 /* reveal animation */
 .reveal{opacity:0;transform:translateY(10px);animation:rise .65s cubic-bezier(.2,.7,.2,1) forwards}
 @keyframes rise{to{opacity:1;transform:none}}

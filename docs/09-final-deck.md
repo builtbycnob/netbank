@@ -26,7 +26,7 @@
 ## Master number-defense card *(oral — the only blessed numbers)*
 
 - **3,425,767** autónomos in Spain, Dec 2025, +1.2% YoY — *lamoncloa.gob.es* (round to 3.43M on slide, exact orally).
-- **~81 days** micro-firm collection vs a **60-day** legal limit — *CEPYME Observatorio de Morosidad, FY2025* (NOT the inflated ">85" August headline).
+- **~80.5 days** average payment period (PMP) for Spanish firms, **2025**, vs a **60-day** legal limit — **34% over** — *CEPYME Observatorio de Morosidad 2025 (Informa D&B + CESCE)*. Round to **~81 days** on the slide. Micro-firms are the **most exposed** segment (morosity index +17%, 10.7% of invoices paid >30d late), not the slowest on headline PMP — the ">85"/85.6 figure was a **mid-2025 micro spot**, not the year average; don't use it.
 - **Qonto €9 / €19 / €39 per month** subscription benchmark · gestor/gestoría €60–100/mo. Most top-25 neobanks earn **<$30 revenue/customer/year** (Simon-Kucher).
 - **CaixaBank 38.5%** cost-to-income, audited FY24 (20.3M customers / 45,851 employees) — incumbent **baseline**. **Nubank ~$0.80**/cust-mo · **WeBank ~118k** cust/employee — digital-native **ceiling, NOT our peer** (avoid the unaudited "$5–10 cost-to-serve").
 - **Factoring 1–3%** loss band vs **5.4%** unsecured consumer-credit NPL — *EBA, Jun 2025* (loss-rate to loss-rate; **conditioned on a named, SII-confirmed receivable**).
@@ -51,14 +51,14 @@
 
 ## Slide 2 — The client and the wound  *(lift — full slide: [`docs/04`](04-slides-mobile-experience.md) Slide 2)*
 
-- Freelancers, agencies, bootstrapped startups: **<10 staff, ~€10k–€1M revenue**, cash-flow-positive.
+- **VAT-registered Spanish micro-firms with late-paid B2B invoice income** — autónomos, agencies, bootstrapped *revenue* firms: **<10 staff, ~€10k–€1M revenue**, cash-flow-positive. *(Not VC-backed / burn-funded startups — a different customer with no invoice-payment loop to underwrite; see docs/11.)*
 - **3.43M autónomos in Spain** (Dec 2025, lamoncloa.gob.es) — solvent over the year.
-- Micro-firms collect in **~81 days** vs a **60-day legal limit** (CEPYME, FY2025). The wound is two-headed: invoicers wait on booked-but-uncollected cash; project/SaaS businesses ride lumpy income. **Solvent annually, blind week to week.**
+- Spanish firms collect at **~81 days** on average (PMP 80.5, 2025) vs a **60-day legal limit** — **34% over** (CEPYME); micro-firms are the **most exposed** (morosity index +17%, 10.7% of invoices paid >30d late). The wound is two-headed: invoicers wait on booked-but-uncollected cash; project/SaaS businesses ride lumpy income. **Solvent annually, blind week to week.**
 
 [VISUAL: see docs/04 Slide 2 — segment band + two stacked timelines (receivables gap with the 60-day line inside it; lumpy-income curve dipping in a "dry month").]
 
-**DEFENSE — Q: "You wrote '>85 days' elsewhere — which is it, and why does every ambiguity round in your favour?"**
-A: "Locked to one figure: ~81 days for micro-firms in FY2025 against a 60-day legal limit (CEPYME). I dropped the August headline because it rounds the pain *up* — the 81-vs-60 gap is the real, defensible wound."
+**DEFENSE — Q: "You wrote '>85 days' elsewhere — and is ~81 the micro figure or the average? Why does every ambiguity round in your favour?"**
+A: "Locked to the 2025 average payment period: **~80.5 days** for Spanish firms vs the 60-day legal limit — 34% over (CEPYME Observatorio de Morosidad 2025). Micro-firms are the most *exposed* segment — highest morosity index, most invoices paid >30 days late — even though their year-end headline PMP eased. I don't cherry-pick the mid-2025 micro spike of 85.6 days; the durable wound is the ~21-day gap to the legal limit."
 
 ---
 
@@ -224,4 +224,6 @@ A: "Willingness-to-pay. This work proves the underwriting signal exists and surv
 | **The 96% / €9k / 18d and 0.91→0.78 figures** | All **illustrative / synthetic / [to validate]** — they demonstrate the *method and signal structure*, not measured NetBank outcomes. The real numbers are a pilot deliverable. |
 | **"Booked a CFO/collections" lead-times (30–90d / 3–9mo)** | **Placeholders [to validate]** against real cohorts — the *direction* (a collections booking is AR stress before a bureau miss) is the claim; the magnitude is unvalidated. |
 | **"Object boundaries ARE the leakage planes / legal regimes"** | A framing, defended by three concrete examples (fraud quarantine, `_asof` cut, human-gated grant). I say "enforce", not strict identity. |
+| **New customers have no payment history — how do you price their first bridge?** | On a **cohort prior**: a new customer's first advances are priced on the look-alike, payer-grouped base rate, then re-priced as their own realized payment dates land and retrain the per-client model. Cold-start is a known gap — the prior is the floor, the loop is the improvement. The Bridge is **paper-traded today** (backtest/paper-trade, no live book) — see the next row. |
+| **Why not VC-backed startups? Your deck says "<10 staff" and teammates raised data-rooms / find-investors / FICO-for-startups** | Deliberate scope ([docs/11](11-team-ideas-evaluation.md)): we hold VAT-registered micro-firms with **late-paid invoice income**, because that's where our evidence, our closed-loop moat, and our best WTP all live. A burn-funded startup generates **no realized invoice-payment signal** to underwrite — adopting it re-segments the product and strands the evidence base. Those ideas were **redirected, not adopted** (kernels salvaged: FICO→reliability on payers; CFO→route-don't-own panel). |
 | **Biggest risk overall** | **WTP.** The build proves the signal, not the monetization — stated plainly, not buried. |

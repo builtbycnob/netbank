@@ -1,6 +1,8 @@
 # 00 — Product Definition *(working brief, from team discussion 2026-06-08)*
 
 > Captured from the team's voice discussion. **Not locked** — open to change. This is the source-of-truth the design works from.
+>
+> ⚠️ **Superseded on segment & scope by [docs/11](11-team-ideas-evaluation.md) (2026-06-15).** The locked customer is **VAT-registered Spanish micro-firms with late-paid B2B invoice income** (autónomos · agencies · bootstrapped *revenue* firms, solo→10) — **VC-backed / capital-burning startups are explicitly excluded** (they have no invoice-payment loop to underwrite). The "burn rate / runway / card-per-employee / spend-per-employee" framing below drifted startup-ward; those are **deprioritized fold-ins**, not core. Pillars = Tax-Sweep+ · Concurso Radar · Bridge fee (paper-traded). The number to cite is the **~80.5-day 2025 PMP vs the 60-day legal limit** (CEPYME), not ">85".
 
 ## What we're building
 

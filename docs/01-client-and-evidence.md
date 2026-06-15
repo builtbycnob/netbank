@@ -32,7 +32,7 @@ The single balance **lies**: it blends *mine*, *the tax office's*, and *not-here
 ### The pain (lumpy income + late payment)
 | Metric | Value | Source |
 |---|---|---|
-| Avg invoice collection for autónomos | **>85 days** (micro 85.6 vs 30/60 legal) | [CEPYME 2025](https://www.autonomosyemprendedor.es/articulo/pymes/empresas-tardan-mas-85-dias-media-pagar-facturas-autonomos-cepyme/20250808125742044707.html) |
+| Avg payment period (PMP), Spanish firms | **~80.5 days** (2025) vs **60-day legal limit** — **34% over**; micro-firms most exposed (morosity index +17%, 10.7% of invoices paid >30d late) | [CEPYME Observatorio de Morosidad 2025](https://www.autonomosyemprendedor.es/articulo/pymes/pymes-solo-cobran-cada-tres-facturas-tiempo-ultimo-observatorio-morosidad/20260410165245053056.html) (round to ~81 on slide; the mid-2025 ">85"/85.6 micro spot is superseded) |
 | Spain financial stress | **60% weekly, 37.4% daily** (2024) | [Unobravo](https://www.unobravo.com/es/dati/informe-estres-financiero) |
 | Spain stress/anxiety past year | **72%** (Aegon VII, Oct 2024) | [aegon.es](https://www.aegon.es/sobre-aegon/area-prensa/notas-de-prensa/nota-estres-estudio-salud-2024) |
 

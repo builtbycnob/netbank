@@ -7,6 +7,27 @@ Synthesis of 64 ideas across 8 lenses, scored by 3 judge panels (VC, Product, Sk
 
 NetBank = AI-native business neobank + embedded lender for Spanish autónomos / agencies / sub-10-employee firms. Objective function = customer **financial health** (success = borrow LESS, open the app LESS). Moat = the **closed loop** (every realized invoice-payment date retrains a per-client reliability model that prices the next loan) + a financial-health objective an interchange/engagement incumbent structurally won't adopt. Non-credit autonomous core (forecast / tax-sweep / categorize / safe-to-borrow SIZING) is outside EU AI Act Annex III; the credit GRANT is human-on-the-loop (Annex III §5(b) + GDPR Art. 22). Everything SIZES & WARNS; only a human GRANTS. #1 self-identified weakness = **willingness-to-pay (WTP)**.
 
+## Top 5 — plain-language explainer (highest-scored; final 3–5 pick = team, pending)
+
+**1. Tax-Sweep+ — "VAT, handled" · ~€9–15/mo · score 9.0**
+Every incoming payment auto-sets-aside the VAT/income-tax slice into a locked pot; at quarter-end the money's already there and the modelo-303 pack is one tap from the accountant. *Customer:* the quarterly VAT panic disappears. *NetBank:* the clearest "who pays, how much" answer — priced against the €25–100/mo they already pay a gestor. *First test:* show the price to a beta cohort, count subscribers (target >15%).
+
+**2. Concurso Radar — "the client traffic-light" · free · score 8.33**
+A red/amber/green light on every client who owes you, lit by public Spanish registries (BORME/insolvency) — you see a client in trouble weeks before the invoice goes overdue. *Customer:* chase, ask a deposit, or stop extending credit in time. *NetBank:* public data, free to build, no ethics gate; the cheapest way to make the moat real — also sellable as a paid "Watchtower". *First test:* backtest — what share of write-offs had an earlier public filing, and how early.
+
+**3. Bridge fee on a named invoice — "the core product" · score 8.0**
+Advance the cash from one specific invoice at a transparent 1.5–3% fee priced on *that* client's reliability, not a blanket rate. *Customer:* earned-but-stuck cash (Spain pays at ~81 days) in hand today, at a fair price. *NetBank:* the actual business — losses stay in the 1–3% factoring band vs 5.4% consumer NPL, so the fee is mostly margin, and each advance sharpens the next price. *First test:* paper-trade on historical invoices — does the fee cover real losses with margin?
+
+**4. Gestoría Co-Pilot channel — "accountants bring the customers" · score 8.0**
+Give gestorías a free dashboard that pre-fills their clients' books from NetBank data (riding the July-2027 Verifactu mandate); they refer their clients for a flat per-signup fee. *Customer:* their trusted accountant recommends the bank; books reconcile themselves. *NetBank:* solves customer-acquisition cost (what kills low-margin neobanks) — one gestoría = dozens of pre-qualified customers at fixed cost; the gestor can be the required human loan-reviewer. *First test:* 2–3 pilot gestorías → cost-per-customer vs paid ads.
+
+**5. Servicing Re-Date — "collections disappears" · score 8.0**
+After an advance, the app keeps watching; if you'll be paid late it offers a one-tap move of the repayment date instead of a dunning notice + late fee. *Customer:* no collections call, no late fee — repayment adapts to reality. *NetBank:* lower losses and lower cost; concrete proof the health objective is real. *First test:* simulate the re-date on historical loans — how many late payments pre-empted.
+
+> **How they fit:** (1) earns the subscription · (3) is the lending margin · (2) makes lending safer ≈free · (4) acquires customers cheaply · (5) proves the bank works *for* you — i.e. **revenue · margin · moat · acquisition · credibility**. *(Alternative sets considered: "financial-health" swap in Don't-Borrow Verdict + Calm Score; "attack-the-price" swap in the Legal Late-Payment Enforcer + paid Watchtower.)*
+
+---
+
 ## Full catalog (64)
 
 | id | lens | name | description | value-to-customer | value-to-NetBank | leverages | boldness | meanScore |

@@ -36,7 +36,8 @@ This split is what lets the "AI-factory" cost economics and EU compliance coexis
 - ✅ **8 dark mockups live** → https://builtbycnob.github.io/netbank/ (3 home concepts A/B/C — **A "Command Center" recommended**)
 - ✅ Predictive AI ([`docs/05`](docs/05-predictive-ai.md)) · data frontier ([`docs/06`](docs/06-predictive-frontier.md)) · services marketplace ([`docs/07`](docs/07-services-marketplace.md))
 - ✅ **Agentic loan journey** — Role of AI: 9-agent system + the "collections disappears" thesis + drop-in deck slide ([`docs/08`](docs/08-agentic-loan-journey.md))
-- ⬜ Final deck assembly (8 rubric dimensions) + team picks home concept
+- ✅ **Final deck assembled** — all 8 rubric dimensions, per-slide oral defenses + a known-soft-spots appendix ([`docs/09`](docs/09-final-deck.md))
+- ⬜ Team picks home concept · rehearse the oral defense
 
 ## Repo structure
 

@@ -56,6 +56,8 @@ The professor's 7-stage spine *is* the expected deck structure:
 
 ## 3. Prioritized gaps to close (verified)
 
+> ✅ **STATUS (2026-06-15): all 8 gaps CLOSED.** docs/09 expanded **11 → 21 slides** (within the 20–25 target) — new slides 2 (Netflix-logic, G1), 4 (persona), 8 (rigid-journey, G4), 10 (agent system + business value, G2/G3), 11 (conversational, G2), 12 (sentiment, G2), 13 (Crazy-8s→pillars), 15 (ImaginBank/Nubank, G5), 18 (stack, G8), 21 (reflection, G7). Each was drafted + professor-red-teamed (workflow `netbank-deck-gapclose`).
+
 | # | Gap | Why it matters | Fix → where |
 |---|---|---|---|
 | **G1** | **No Netflix-analogy slide** (grep: 0 hits for netflix/next-best/recommendation in docs/09) | It's the assignment's namesake framing; the prof templates it | Add a slide using §2.A → docs/09 |

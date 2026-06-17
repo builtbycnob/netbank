@@ -42,20 +42,6 @@ Update docs/15-task-tracker.md: claim NET-03 for <name>, started <YYYY-MM-DD>, a
 - `Review` - deliverable exists and needs team/professor review.
 - `Done` - accepted or merged.
 
-## Project context to preserve
-
-The current project framing is NetBank: an AI-native business neobank and embedded lender for VAT-registered Spanish micro-firms with late-paid B2B invoice income: autonomos, agencies, and bootstrapped revenue firms from solo to about 10 employees. The product should not silently drift into a VC-backed, capital-burning startup tool.
-
-Core principles from the existing docs:
-
-- The customer's problem is not just cash balance; it is knowing what money is actually theirs, what belongs to tax, and what booked income is not here yet.
-- The key underwriting object is the named payer/receivable, not a generic borrower profile.
-- The AI core sizes, warns, recommends, routes, and explains. The credit grant stays human-on-the-loop.
-- The moat should be described honestly: the present strength is the Payer object, grouped-holdout method, and regulatory architecture; the closed loop is a compounding mechanism that must be proven on real payment labels; the health objective is a softer "won't, not can't" differentiator.
-- Use the locked payment-delay number: about 80.5 days / about 81 days in 2025 versus the 60-day legal limit. Do not revive the older ">85 days" line unless clearly labeled as an old/mid-year spot.
-
-Source docs read before creating this tracker: `README.md` and `docs/00-product-definition.md` through `docs/14-differentiation-and-roadmap.md`.
-
 ---
 
 ## NET-01 - UI Mobile App / Demo

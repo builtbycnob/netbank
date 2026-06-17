@@ -19,3 +19,4 @@ dist/
 
 # Playwright MCP scratch
 .playwright-mcp/
+__pycache__/

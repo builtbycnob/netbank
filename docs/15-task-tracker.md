@@ -1,4 +1,4 @@
-# NetBank Task Tracker
+# 15 - Task Tracker
 
 This file is the shared task board for the NetBank project. It is meant to be edited directly by teammates or by an agent whenever someone claims, updates, blocks, or completes a task.
 
@@ -31,7 +31,7 @@ If a task is blocked, set `Status` to `Blocked` and write the blocker in `Curren
 Suggested agent prompt:
 
 ```text
-Update TASKS.md: claim NET-03 for <name>, started <YYYY-MM-DD>, and set the current note to "<what they are doing>".
+Update docs/15-task-tracker.md: claim NET-03 for <name>, started <YYYY-MM-DD>, and set the current note to "<what they are doing>".
 ```
 
 ## Status key

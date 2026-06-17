@@ -114,6 +114,6 @@ Never claim "only we see invoice data" - it is FALSE (Verifactu/SII make it comm
 
 ## Team
 
-ESADE cohort - Corrado, Navid, Rui, Marti.
+ESADE cohort (6) - Corrado, Navid, Manon, Marti, Rui, Tim.
 Course: Data-Driven Prototyping with AI.
 This repo is public - do not commit the course syllabus or any confidential material.

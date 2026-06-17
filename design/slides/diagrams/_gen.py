@@ -467,7 +467,7 @@ def close_board():
     b = []
     # team row
     b.append(T(60, 56, "TEAM", "d-title"))
-    names = ["Corrado", "Navid", "Rui", "Martí"]
+    names = ["Corrado", "Navid", "Manon", "Marti", "Rui", "Tim"]
     x = 60
     for n in names:
         b.append(C(x + 28, 110, 26, "d-node--payer"))

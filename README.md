@@ -2,7 +2,7 @@
 
 **An AI-native bank that does for the complexity of money what Apple did for the smartphone: make it simple, calm, and obvious.**
 
-Cumulative project for the ESADE MIM course *Data-Driven Prototyping with AI*. NetBank is an AI-native financial service designed for people whose income is **lumpy** — Spanish *autónomos*, freelancers and micro-creators whose money arrives in invoice-tied lumps, not a monthly salary.
+Cumulative project for the ESADE course *Data-Driven Prototyping with AI*. NetBank is an AI-native financial service designed for people whose income is **lumpy** — Spanish *autónomos*, freelancers and micro-creators whose money arrives in invoice-tied lumps, not a monthly salary.
 
 > **The one-liner:** *"Your bank reads your invoices, not just your balance."*
 

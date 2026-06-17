@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NetBank — Final Deck</title>
-<link rel="stylesheet" href="fonts/fonts.css?v=6a329a82">
-<link rel="stylesheet" href="vendor/reveal.css?v=6a329a82">
-<link rel="stylesheet" href="theme.css?v=6a329a82">
+<link rel="stylesheet" href="fonts/fonts.css?v=6a330854">
+<link rel="stylesheet" href="vendor/reveal.css?v=6a330854">
+<link rel="stylesheet" href="theme.css?v=6a330854">
 </head>
 <body>
 <svg class="dgm-defs" aria-hidden="true" focusable="false"><defs>
@@ -17,7 +17,7 @@
 </defs></svg>
 <div class="reveal"><div class="slides">
 <section class="cover" data-slide="1">
-  <div class="brand"><div class="mark">N</div><b>NetBank</b><span>ESADE MIM · Data-Driven Prototyping with AI</span></div>
+  <div class="brand"><div class="mark">N</div><b>NetBank</b><span>ESADE · Data-Driven Prototyping with AI</span></div>
   <h1>Your bank reads your invoices, not your balance — <em>and wins when you borrow less.</em></h1>
   <div class="evidence dgm"><svg role="img" aria-label="Your bank reads your invoices, not your balance — and wins when you borrow less." viewBox="0 0 1120 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
 <circle cx="560" cy="150" r="84" class="d-edge--dash"/><path d="M 502 110 A 72 72 0 1 1 502 190" class="d-edge"/><path d="M 630 150 H 810" class="d-edge--loop"/><text x="710" y="134" class="d-cap" text-anchor="middle">you borrow less</text><text x="560" y="154" class="d-num" text-anchor="middle" font-size="30">$</text><text x="560" y="300" class="d-cap" text-anchor="middle">the win-arrow points OUT of the app</text>
@@ -303,8 +303,8 @@
   <div class="slide-body"><table><thead><tr><th>Probe</th><th>The crisp answer</th></tr></thead><tbody><tr><td><strong>"SII-confirmed receivable" — but the SII/Verifactu mandate for autónomos is ~1 Jul 2027</strong></td><td>Correct. <em>Today</em> the receivable is confirmed via accounting-tool feeds (Holded/Quaderno) + PSD2 settlement; the legal SII channel <strong>hardens</strong> that confirmation from 2027. The 1–3% loss band is conditioned on that confirmation, by whichever channel.</td></tr><tr><td><strong>38.5% and 1–3% are not YOUR numbers</strong></td><td>Right — 38.5% is the CaixaBank <strong>incumbent baseline</strong>; 1–3% is the <strong>factoring market reference</strong> conditioned on a named receivable. We have <strong>no realized loan book yet</strong> — these are direction-of-travel; our own ratio comes from the pilot. We label them as such.</td></tr><tr><td><strong>5.4% is CONSUMER NPL; you lend to SMEs/autónomos</strong></td><td>It's the closest public peer, compared <strong>loss-rate to loss-rate</strong>. Autónomos are natural persons; SLs are legal persons — a near-neighbour, not an exact comparator. The pilot produces our SME-specific number.</td></tr><tr><td><strong>Art. 22 "adverse-only" is your reading, not settled law</strong></td><td>Yes — flagged pending counsel (docs/01 OQ5). If counsel reads a favourable automated grant as in-scope, the human tier simply <strong>widens to cover approvals too — the architecture doesn't change.</strong></td></tr><tr><td><strong>The 96% / €9k / 18d and 0.91→0.78 figures</strong></td><td>All <strong>illustrative / synthetic / [to validate]</strong> — they demonstrate the <em>method and signal structure</em>, not measured NetBank outcomes. The real numbers are a pilot deliverable.</td></tr><tr><td><strong>"Booked a CFO/collections" lead-times (30–90d / 3–9mo)</strong></td><td><strong>Placeholders [to validate]</strong> against real cohorts — the <em>direction</em> (a collections booking is AR stress before a bureau miss) is the claim; the magnitude is unvalidated.</td></tr><tr><td><strong>"Object boundaries ARE the leakage planes / legal regimes"</strong></td><td>A framing, defended by three concrete examples (fraud quarantine, <code>_asof</code> cut, human-gated grant). I say "enforce", not strict identity.</td></tr><tr><td><strong>New customers have no payment history — how do you price their first bridge?</strong></td><td>On a <strong>cohort prior</strong>: a new customer's first advances are priced on the look-alike, payer-grouped base rate, then re-priced as their own realized payment dates land and retrain the per-client model. Cold-start is a known gap — the prior is the floor, the loop is the improvement. The Bridge is <strong>paper-traded today</strong> (backtest/paper-trade, no live book) — see the next row.</td></tr><tr><td><strong>Why not VC-backed startups? Your deck says "&lt;10 staff" and teammates raised data-rooms / find-investors / FICO-for-startups</strong></td><td>Deliberate scope (docs/11): we hold VAT-registered micro-firms with <strong>late-paid invoice income</strong>, because that's where our evidence, our closed-loop moat, and our best WTP all live. A burn-funded startup generates <strong>no realized invoice-payment signal</strong> to underwrite — adopting it re-segments the product and strands the evidence base. Those ideas were <strong>redirected, not adopted</strong> (kernels salvaged: FICO→reliability on payers; CFO→route-don't-own panel).</td></tr><tr><td><strong>Biggest risk overall</strong></td><td><strong>WTP.</strong> The build proves the signal, not the monetization — stated plainly, not buried.</td></tr></tbody></table></div>
 </section>
 </div></div>
-<script src="vendor/reveal.js?v=6a329a82"></script>
-<script src="vendor/notes/notes.js?v=6a329a82"></script>
+<script src="vendor/reveal.js?v=6a330854"></script>
+<script src="vendor/notes/notes.js?v=6a330854"></script>
 <script>
 Reveal.initialize({
   width:1280, height:840, margin:0.04, minScale:1, maxScale:1,

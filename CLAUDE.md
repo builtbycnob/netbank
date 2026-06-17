@@ -4,11 +4,11 @@
 
 ## What this project is
 
-NetBank (working name) is the cumulative project for the ESADE MIM course Data-Driven Prototyping with AI. It is an AI-native business neobank and embedded lender for VAT-registered Spanish micro-firms with late-paid B2B invoice income: autonomos, agencies, and bootstrapped revenue firms from solo to about 10 employees. Geography: Spain/EU first.
+NetBank (working name) is the cumulative project for the ESADE course Data-Driven Prototyping with AI. It is an AI-native business neobank and embedded lender for VAT-registered Spanish micro-firms with late-paid B2B invoice income: autonomos, agencies, and bootstrapped revenue firms from solo to about 10 employees. Geography: Spain/EU first.
 
 The core product insight: a single account balance lies to a freelancer. It conflates money that is hers, money owed to the tax office, and money booked but not yet arrived. NetBank resolves that with three live truths, a per-Payer reliability model, and a financial-health objective that wins when the customer borrows less.
 
-The deck is a 22-slide oral defense covering all 8 rubric dimensions. See docs/09-final-deck.md for the master slide content and docs/15-task-tracker.md for the live task board.
+The deck is an 11-slide pitch-spine oral-defense deck (assertion-evidence, ~11 min) covering all 8 rubric dimensions; the original 22 content slides remain as appendix/backup. See docs/09-final-deck.md (master content + Presentation manifest), docs/16/17 (design principles + rebuild plan), and docs/15-task-tracker.md (live board).
 
 Live prototype: https://builtbycnob.github.io/netbank/ (8 dark mobile screens)
 
@@ -45,7 +45,7 @@ Live prototype: https://builtbycnob.github.io/netbank/ (8 dark mobile screens)
 | 14-differentiation-and-roadmap.md | Adversarial stress-test on differentiation; product roadmap; what survives each attack | Any differentiation, moat, or roadmap task |
 | 15-task-tracker.md | Live task board - claim, update, and complete tasks here | Every task. Update it when you start, change status, or finish |
 | 16-deck-design-principles.md | Gold-standard slide-design contract (assertion-evidence, action titles, on-slide/notes split, inline-SVG system, glance gates), cited | Any deck/slide design or build task |
-| 17-deck-rebuild-plan.md | Deck rebuild plan: pitch-spine running order (16 slides) × 8-rubric map, timing, per-slide spec, new-content list, build_deck.py/theme.css changes | Any deck rebuild, running-order, or NET-05 task |
+| 17-deck-rebuild-plan.md | Deck rebuild plan: pitch-spine running order (11 slides) × 8-rubric map, timing, per-slide spec, new-content list, build_deck.py/theme.css changes | Any deck rebuild, running-order, or NET-05 task |
 
 ### design/mockups/
 
@@ -114,6 +114,6 @@ Never claim "only we see invoice data" - it is FALSE (Verifactu/SII make it comm
 
 ## Team
 
-ESADE MIM cohort - Corrado, Navid, Rui, Marti.
+ESADE cohort - Corrado, Navid, Rui, Marti.
 Course: Data-Driven Prototyping with AI.
 This repo is public - do not commit the course syllabus or any confidential material.

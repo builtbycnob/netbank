@@ -256,7 +256,7 @@ if manifest and manifest[0]["pos"] == 1:
     sub = "".join(f"<p class='sub'>{inline(b[2:])}</p>" for b in s1.get("body", [])
                   if b.strip().startswith("- "))
     sections.append(f"""<section class="cover" data-slide="1">
-  <div class="brand"><div class="mark">N</div><b>NetBank</b><span>ESADE MIM · Data-Driven Prototyping with AI</span></div>
+  <div class="brand"><div class="mark">N</div><b>NetBank</b><span>ESADE · Data-Driven Prototyping with AI</span></div>
   <h1>{h1html}</h1>
   {diagram_svg(cover['diagram'], h1) if cover['diagram'] else ""}
   <div class="meta"><span class="pill">business neobank + embedded lender</span><span class="pill">autónomos &amp; agencies · Spain/EU</span></div>

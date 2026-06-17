@@ -1,6 +1,6 @@
 # 05 — Predictive AI (Orange Data Mining)
 
-> Cumulative project, ESADE MIM *Data-Driven Prototyping with AI*. Builds on the ontology (Customer + Mobile-App objects: accounts, transactions, invoices/receivables, goals, products, agents, decisions) and the client/evidence pass in [`docs/01`](01-client-and-evidence.md). This document answers the six required questions, then gives a widget-by-widget Orange build for the recommended first model.
+> Cumulative project, ESADE *Data-Driven Prototyping with AI*. Builds on the ontology (Customer + Mobile-App objects: accounts, transactions, invoices/receivables, goals, products, agents, decisions) and the client/evidence pass in [`docs/01`](01-client-and-evidence.md). This document answers the six required questions, then gives a widget-by-widget Orange build for the recommended first model.
 
 ---
 

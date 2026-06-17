@@ -1,6 +1,6 @@
 # NetBank — Mobile Experience: Designing Decisions, Not Screens
 
-> ESADE MIM — final deck, "Mobile Experience" section.
+> ESADE — final deck, "Mobile Experience" section.
 > Every slide: title · fixed bullets · [VISUAL] · SPEAKER NOTES · DEFENSE (professor Q + crisp answer).
 > Numbers are locked to the team's evidence doc (`docs/01-client-and-evidence.md`) with the favorable-rounding and contradiction fixes applied from the defense pass.
 

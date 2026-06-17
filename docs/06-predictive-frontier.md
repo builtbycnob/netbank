@@ -1,6 +1,6 @@
 # 06 — Predictive Data Frontier *(functional-priority scan, ethics deferred)*
 
-> Cumulative project, ESADE MIM *Data-Driven Prototyping with AI*. Builds on the ontology and the recommended first model in [`docs/05`](05-predictive-ai.md) (per-invoice late-payment / per-client reliability; companions = cash-flow shortfall and SME default). **This document maps the FULL predictive-data frontier BEYOND what we already collect, to MAXIMIZE predictive power, precision and EARLINESS.**
+> Cumulative project, ESADE *Data-Driven Prototyping with AI*. Builds on the ontology and the recommended first model in [`docs/05`](05-predictive-ai.md) (per-invoice late-payment / per-client reliability; companions = cash-flow shortfall and SME default). **This document maps the FULL predictive-data frontier BEYOND what we already collect, to MAXIMIZE predictive power, precision and EARLINESS.**
 >
 > **Team framing — read before reading anything else.** This is a **functional-priority** scan. We do **NOT** pre-filter on ethics or consent here. Aggressive, cross-customer, third-party, purchased, scraped, behavioral, device and inbox data is **included if predictive** — and each item is **TAGGED** with its legal/ethics risk, never dropped. The ethics/consent cut is a **separate, later team discussion**; it lives in the clearly-walled-off **Deferred Ethics/Legality Ledger (§4)** the team will use to cut later. **Functional ranking (§1–§3) and ethics tagging (§4) are kept in DISTINCT sections on purpose.**
 >

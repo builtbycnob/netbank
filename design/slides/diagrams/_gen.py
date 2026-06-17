@@ -9,6 +9,10 @@ Every diagram draws with the theme classes in theme.css (.d-node, .d-edge, .d-la
 token re-themes the whole deck. viewBox is the design space; build_deck sizes the svg
 to the slide's evidence area (preserveAspectRatio meet). The S7 charts are generated
 from synthetic points whose trapezoidal AUC equals the labelled 0.91 / 0.78.
+
+Authoring contract (docs/16): plain-English on the wall, the rigorous term one glance
+away; ONE mint focal element per slide; honesty encoded in the visual (dashed/hatched/
+red), never buried. Spine = one object (S3-5) · one loop (S6-7) · one objective (S8-9).
 """
 import html
 from pathlib import Path
@@ -62,7 +66,7 @@ def chip(x, y, w, h, label, cls="d-node", sub=None, tcls="d-label", lh=20):
 
 
 def padlock(x, y, label=None, s=1.0):
-    """small red human-gate padlock at (x,y) center."""
+    """small red human-gate padlock at (x,y) center — reserved for 'a human decides'."""
     bw, bh = 30 * s, 24 * s
     bx, by = x - bw / 2, y - bh / 2 + 6 * s
     shackle = (f'<path d="M {x-9*s} {by} v {-7*s} a {9*s} {9*s} 0 0 1 {18*s} 0 v {7*s}" '
@@ -72,6 +76,14 @@ def padlock(x, y, label=None, s=1.0):
     if label:
         out.append(T(x, y + 30 * s, label, "d-cap", "middle"))
     return "".join(out)
+
+
+def clock(cx, cy, r=11):
+    """hollow clock glyph — 'test not yet run' (kept distinct from the human-gate padlock)."""
+    g = [C(cx, cy, r, "d-node--ghost")]
+    g.append(L(cx, cy, cx, cy - r * 0.55, "d-axis"))      # minute hand
+    g.append(L(cx, cy, cx + r * 0.45, cy + r * 0.1, "d-axis"))  # hour hand
+    return "".join(g)
 
 
 def svg(body, vb_w=W, vb_h=H):
@@ -86,16 +98,23 @@ def write(name, body, vb_w=W, vb_h=H):
 
 # ============================================================ COVER
 def cover():
-    cx, cy = 560, 150
+    """One balance that lies -> three honest slices + the win-arrow OUT; plants the spine."""
     b = []
-    # dashed app-boundary circle + inward grey loop + mint arrow breaking OUT
-    b.append(C(cx, cy, 84, "d-edge--dash"))
-    b.append(PATH(f"M {cx-58} {cy-40} A 72 72 0 1 1 {cx-58} {cy+40}", "d-edge"))
-    # outward win arrow
-    b.append(PATH(f"M {cx+70} {cy} H {cx+250}", "d-edge--loop"))
-    b.append(T(cx + 150, cy - 16, "you borrow less", "d-cap", "middle"))
-    b.append(T(cx, cy + 4, "$", "d-num", "middle", 30))
-    b.append(T(cx, cy + 150, "the win-arrow points OUT of the app", "d-cap", "middle"))
+    b.append(R(60, 108, 160, 64, "d-node--ghost"))
+    b.append(T(140, 138, "€ 23,400", "d-num", "middle", 22))
+    b.append(T(140, 160, "one balance — it lies", "d-cap", "middle"))
+    bands = [("mine", "d-node--mint"), ("the tax office's", "d-node--amber"), ("not here yet", "d-node--blue")]
+    yy = 74
+    for lab, cl in bands:
+        b.append(PATH(f"M 224 140 C 282 140, 302 {yy+22}, 360 {yy+22}", "d-edge"))
+        b.append(R(360, yy, 250, 44, cl))
+        b.append(T(485, yy + 28, lab, "d-label", "middle"))
+        yy += 64
+    # inverted flywheel: the win-arrow points OUT of the app
+    b.append(PATH("M 640 140 H 900", "d-edge--loop"))
+    b.append(T(772, 122, "good month = you borrow LESS", "d-cap", "middle"))
+    # plant the three-word spine
+    b.append(T(560, 296, "one object   ·   one loop   ·   one objective", "d-title", "middle"))
     return write("cover", "".join(b), 1120, 320)
 
 
@@ -107,20 +126,19 @@ def problem_whynow():
     b.append(T(60, 150, "~81", "hero-num-svg d-num", "start", 110))
     b.append(T(250, 150, "days", "d-label", "start", 34))
     b.append(T(60, 200, "vs a 60-day legal limit — 34% over (CEPYME 2025)", "d-cap"))
-    # bar: 60 (allowed) vs 81 (actual)
     bx, by, scale = 60, 250, 5.6
     b.append(R(bx, by, 60 * scale, 26, "d-node--ghost", 6))
     b.append(T(bx + 60 * scale + 10, by + 18, "60d legal", "d-cap"))
     b.append(R(bx, by + 38, 81 * scale, 26, "d-node--amber", 6))
     b.append(T(bx + 81 * scale + 10, by + 56, "~81d actual", "d-cap"))
     b.append(T(60, by + 120, "micro-firms = the MOST EXPOSED segment", "d-sub"))
-    # right: 3-clock why-now rail
+    # right: 3-clock why-now rail — plain English titles, citations demoted to grey sub-text
     rx = 640
-    b.append(T(rx, 60, "WHY NOW — THREE CLOCKS", "d-title"))
+    b.append(T(rx, 60, "WHY NOW — THREE CLOCKS STRIKE", "d-title"))
     clocks = [
-        ("1", "Invoice data going live", "Verifactu autónomos 1 Jul 2027 · SII", "d-node--blue"),
-        ("2", "AI-Act draws the credit line", "Annex III §5(b) + Art. 22 · by 2 Dec 2027", "d-node--amber"),
-        ("3", "Late payment at a record", "~81d vs 60-day limit (CEPYME 2025)", "d-node--mint"),
+        ("1", "Invoice data goes public", "new e-invoicing law · Verifactu 2027 · SII", "d-node--blue"),
+        ("2", "Rules for AI lending get written", "AI-Act §5(b) + GDPR Art. 22 · by 2 Dec 2027", "d-node--amber"),
+        ("3", "Late payment hits a record", "and rising · micro-firms most exposed (CEPYME 2025)", "d-node--mint"),
     ]
     cy = 90
     for n, t, s, cl in clocks:
@@ -133,42 +151,43 @@ def problem_whynow():
     return write("problem-whynow", "".join(b))
 
 
-# ============================================================ S3 VALUE / THREE TRUTHS
+# ============================================================ S3 VALUE / THREE TRUTHS (OBJECT)
 def value_truths():
     b = []
-    # left: one lying balance splits into 3
+    # left: one lying balance splits into 3 truths (the deck's clearest idea — untouched)
     b.append(T(60, 60, "ONE BALANCE THAT LIES", "d-title"))
     b.append(R(60, 86, 150, 64, "d-node--ghost"))
     b.append(T(135, 116, "€ 23,400", "d-num", "middle", 22))
     b.append(T(135, 138, "the single balance", "d-cap", "middle"))
-    bands = [("mine", "d-node--mint"), ("tax office's", "d-node--amber"), ("not here yet", "d-node--blue")]
+    bands = [("mine", "d-node--mint"), ("the tax office's", "d-node--amber"), ("not here yet", "d-node--blue")]
     yy = 86
     for lab, cl in bands:
         b.append(PATH(f"M 215 118 C 260 118, 270 {yy+24}, 320 {yy+24}", "d-edge"))
         b.append(R(320, yy, 200, 44, cl))
         b.append(T(420, yy + 28, lab, "d-label", "middle"))
         yy += 60
-    # right: per-payer card + don't-borrow twin
-    b.append(T(600, 60, "PRICED PER PAYER", "d-title"))
-    b.append(R(600, 86, 460, 96, "d-node--payer"))
-    b.append(T(620, 120, "Client ACME", "d-label"))
-    b.append(T(620, 150, "~96% reliable (illustrative) · €9k · bridge €X", "d-sub"))
-    b.append(R(600, 200, 220, 70, "d-node--ghost"))
-    b.append(T(620, 232, "Client B · erratic", "d-sub"))
-    b.append(T(620, 256, "don't bridge", "d-cap"))
-    b.append(R(840, 200, 220, 70, "d-node--mint"))
-    b.append(T(950, 230, "cash is coming", "d-label", "middle"))
-    b.append(T(950, 254, "→ don't borrow", "d-cap", "middle"))
-    b.append(T(600, 330, "the honest branch: we win when you borrow less", "d-sub"))
-    b.append(L(60, 380, 1060, 380, "d-grid"))
-    b.append(T(60, 410, "sizes & warns — never auto-grants; loss in the 1–3% factoring band vs 5.4% NPL", "d-cap"))
+    # right: a model of how each CLIENT pays (simplified — no false-precision %, no 'bridge €X')
+    b.append(T(600, 60, "WE LEARN HOW EACH CLIENT PAYS", "d-title"))
+    b.append(R(600, 86, 460, 80, "d-node--payer"))
+    b.append(T(620, 118, "Client ACME", "d-label"))
+    b.append(T(620, 144, "reliable (illustrative) → safe to advance €9k", "d-sub"))
+    b.append(R(600, 184, 220, 64, "d-node--ghost"))
+    b.append(T(620, 214, "Client B · erratic", "d-sub"))
+    b.append(T(620, 236, "→ don't advance", "d-cap"))
+    # the one mint focal element = the inverted-incentive lede
+    b.append(R(840, 184, 220, 64, "d-node--mint"))
+    b.append(T(950, 212, "cash is coming", "d-label", "middle"))
+    b.append(T(950, 236, "→ don't borrow", "d-cap", "middle"))
+    b.append(T(600, 300, "the honest branch: we win when you borrow less", "d-sub"))
+    b.append(L(60, 360, 1060, 360, "d-grid"))
+    b.append(T(60, 392, "the model sizes & warns — a human signs every loan", "d-cap"))
     return write("value-truths", "".join(b))
 
 
-# ============================================================ S4 NETFLIX + APP
+# ============================================================ S4 NETFLIX + APP (OBJECT, shipped)
 def netflix_app():
     b = []
-    # left: phone still (Command Center)
+    # left: phone still (Command Center) — the 8 live screens
     px, py, pw, ph = 60, 40, 230, 440
     b.append(R(px, py, pw, ph, "d-node", 28))
     b.append(R(px + 16, py + 22, pw - 32, 40, "d-node--ghost", 8))
@@ -181,109 +200,90 @@ def netflix_app():
         cls = "d-node--blue" if i == 0 else ("d-node--amber" if i == 2 else "d-node")
         b.append(R(px + 16, yy, pw - 32, 44, cls, 8))
         b.append(T(px + 28, yy + 28, lab, "d-sub"))
-    b.append(T(px + pw / 2, py + ph + 28, "8 live screens", "d-cap", "middle"))
-    # right: Netflix -> NetBank 5-row split
-    lx, rx, top = 360, 740, 70
-    b.append(T(lx + 130, 44, "NETFLIX", "d-title", "middle"))
-    b.append(T(rx + 150, 44, "NETBANK", "d-title", "middle"))
+    b.append(T(px + pw / 2, py + ph + 28, "8 live screens — open them now", "d-cap", "middle"))
+    # right: Netflix -> NetBank, the TWO load-bearing rows (the other 3 -> notes)
+    lx, rx, top, rh = 360, 730, 150, 120
+    b.append(T(lx + 130, 110, "NETFLIX", "d-title", "middle"))
+    b.append(T(rx + 175, 110, "NETBANK", "d-title", "middle"))
     rows = [
-        ("movies", "financial ACTIONS", True),
-        ("recommendations", "next-best DECISION", False),
-        ("viewer profile", "per-Payer reliability", False),
-        ("AI ranking", "sizes & warns · human grants", False),
-        ("keep watching ↺", "realized payment → retrain ↻", True),
+        ("movies", "financial ACTIONS, not products", False),
+        ("keep watching ↺", "the loop: each payment → a sharper next call", True),
     ]
-    rh = 70
     for i, (lft, rgt, hot) in enumerate(rows):
         yy = top + i * rh
-        b.append(R(lx, yy, 260, 54, "d-node--ghost"))
-        b.append(T(lx + 130, yy + 32, lft, "d-sub", "middle"))
-        b.append(R(rx, yy, 320, 54, "d-node--mint" if hot else "d-node"))
-        b.append(T(rx + 160, yy + 32, rgt, "d-label" if hot else "d-sub", "middle"))
-        b.append(PATH(f"M {lx+260} {yy+27} H {rx}", "d-edge--loop" if hot else "d-edge"))
+        b.append(R(lx, yy, 260, 64, "d-node--ghost"))
+        b.append(T(lx + 130, yy + 38, lft, "d-sub", "middle"))
+        b.append(R(rx, yy, 350, 64, "d-node--mint" if hot else "d-node"))
+        b.append(T(rx + 175, yy + 38, rgt, "d-label" if hot else "d-sub", "middle"))
+        b.append(PATH(f"M {lx+260} {yy+32} H {rx}", "d-edge--loop" if hot else "d-edge"))
+    b.append(T(rx + 175, top + 2 * rh + 14, "recommendation, not application — the win-arrow points OUT", "d-cap", "middle"))
     return write("netflix-app", "".join(b))
 
 
-# ============================================================ S5 ONTOLOGY
+# ============================================================ S5 ONTOLOGY (OBJECT built right)
 def ontology():
     b = []
-    bands = [("OBJECTS", 60), ("LOGIC", 220), ("ACTIONS", 360)]
+    # plain-English band names; the rigorous term lives in notes
+    bands = [("WHAT WE STORE", 60), ("THE BRAINS", 220), ("WHAT IT DOES", 360)]
     for lab, yy in bands:
         b.append(R(40, yy, 880, 120, "d-band"))
         b.append(T(56, yy + 26, lab, "d-title"))
-    # objects row
+    # objects row — Payer is the highlighted join
     objs = ["Customer", "Account", "Invoice", "Payer", "Goal", "Loan", "Decision"]
     ox = 70
     for o in objs:
         cls = "d-node--payer" if o == "Payer" else "d-node"
         b.append(chip(ox, 96, 112, 56, o, cls, tcls="d-sub"))
         ox += 122
-    # logic row
-    for i, p in enumerate(["M1 late-pay", "M2 cash-flow", "M3 capacity"]):
+    b.append(T(492, 174, "the join", "d-cap", "middle"))
+    # the brains row — plain model names
+    for i, p in enumerate(["predict late-pay", "forecast cash", "safe-to-borrow"]):
         b.append(chip(70 + i * 150, 256, 136, 52, p, "d-node--blue", tcls="d-sub"))
-    b.append(chip(540, 256, 360, 52, "autonomy ladder + Annex III §5(b)/Art.22", "d-node--red", tcls="d-sub"))
-    # actions row
-    b.append(chip(70, 396, 500, 52, "9 agents: intake → … → servicing → repay", "d-node", tcls="d-sub"))
-    b.append(PATH("M 580 422 C 700 460, 800 460, 820 318", "d-edge--loop"))
-    b.append(T(640, 470, "retrains Reliability", "d-cap"))
-    # red dashed boundary slicing all bands
-    b.append(L(465, 50, 465, 490, "d-divider"))
-    b.append(T(480, 510, "object boundary = leakage plane = legal regime", "d-cap"))
-    # right inset: payer join
-    ix = 960
-    b.append(T(ix, 60, "PAYER = JOIN KEY", "d-title"))
-    b.append(C(ix + 70, 220, 30, "d-node--payer"))
-    b.append(T(ix + 70, 226, "Payer", "d-sub", "middle"))
-    for i, yy in enumerate([130, 220, 310]):
-        b.append(C(ix + 150, yy, 16, "d-node--mint"))
-        b.append(PATH(f"M {ix+134} {yy} H {ix+100}", "d-edge"))
-    b.append(T(ix, 380, "cross-customer", "d-cap"))
-    b.append(T(ix, 400, "bureau = ROADMAP", "d-cap"))
-    b.append(T(ix, 420, "ONLY (2 gates)", "d-cap"))
-    return write("ontology", "".join(b), 1160, 520)
+    b.append(chip(540, 256, 360, 52, "a human signs every loan — by law", "d-node--red", tcls="d-sub"))
+    # what it does row — the agents (loop arrow lives on S6, removed here)
+    b.append(chip(70, 396, 830, 52, "9 agents: intake → reliability → grant → servicing → repay", "d-node", tcls="d-sub"))
+    # red dashed boundary slicing all bands — captioned at the line, not orphaned
+    b.append(L(465, 50, 465, 446, "d-divider"))
+    b.append(T(474, 64, "a boundary", "d-cap"))
+    b.append(T(120, 500, "separate boxes = the model can't cheat, and we stay legal", "d-cap"))
+    return write("ontology", "".join(b), 960, 520)
 
 
-# ============================================================ S6 ROLE: RIGID -> LOOP
+# ============================================================ S6 ROLE: RIGID -> LOOP (the turn)
 def role_turn():
     b = []
     steps = ["Application", "Eligibility", "Risk", "Decision", "Outcome"]
-    # top: rigid pipeline (grey, straight)
-    b.append(T(60, 50, "TODAY — rigid, one-shot", "d-title"))
     sx, sw, gap = 70, 170, 30
+    # top: rigid pipeline (grey, straight, no path back)
+    b.append(T(60, 50, "TODAY — rigid, one-shot", "d-title"))
     for i, s in enumerate(steps):
         x = sx + i * (sw + gap)
         b.append(chip(x, 74, sw, 56, s, "d-node--ghost", tcls="d-sub"))
         if i < len(steps) - 1:
             b.append(PATH(f"M {x+sw} 102 H {x+sw+gap}", "d-edge"))
     b.append(T(70, 168, "no path back · the bank throws away every realized outcome", "d-cap"))
-    # bottom: same five as a learning loop (mint), padlock on grant, return arrow
+    # bottom: same five as a learning loop. Neutral chips; the ONE mint element = the return arrow.
     b.append(T(60, 240, "NETBANK — a learning loop", "d-title"))
     ly = 280
     for i, s in enumerate(steps):
         x = sx + i * (sw + gap)
-        cls = "d-node--red" if s == "Decision" else "d-node--mint"
-        b.append(chip(x, ly, sw, 56, s, cls, tcls="d-label"))
+        cls = "d-node--red" if s == "Decision" else "d-node"
+        b.append(chip(x, ly, sw, 56, s, cls, tcls="d-sub"))
         if i < len(steps) - 1:
-            b.append(PATH(f"M {x+sw} {ly+28} H {x+sw+gap}", "d-edge--loop"))
-    # padlock on Decision
+            b.append(PATH(f"M {x+sw} {ly+28} H {x+sw+gap}", "d-edge"))
+    # the one human gate, plain-language label
     dec_x = sx + 3 * (sw + gap) + sw / 2
-    b.append(padlock(dec_x, ly - 18, "human grant", 1.0))
-    # return arrow Outcome -> Risk
+    b.append(padlock(dec_x, ly - 18, "a human signs every loan — by law (EU)", 1.0))
+    # the mint return arrow — the slide's single new idea
     out_x = sx + 4 * (sw + gap) + sw / 2
     risk_x = sx + 2 * (sw + gap) + sw / 2
     b.append(PATH(f"M {out_x} {ly+56} C {out_x} {ly+150}, {risk_x} {ly+150}, {risk_x} {ly+56}", "d-edge--loop"))
-    b.append(T((out_x + risk_x) / 2, ly + 168, "every realized payment date retrains the model", "d-cap", "middle"))
-    # mode legend
-    b.append(T(70, 500, "Predict", "d-cap"))
-    b.append(C(58, 496, 6, "d-node--blue"))
-    b.append(T(190, 500, "Recommend", "d-cap"))
-    b.append(C(178, 496, 6, "d-node--amber"))
-    b.append(T(330, 500, "Act / health", "d-cap"))
-    b.append(C(318, 496, 6, "d-node--mint"))
+    b.append(T((out_x + risk_x) / 2, ly + 168, "every payment teaches the model", "d-cap", "middle"))
+    b.append(T(70, 500, "a separate human runs the AML / identity check — AI sizes & warns, never grants", "d-cap"))
     return write("role-turn", "".join(b))
 
 
-# ============================================================ S7 MODEL PROOF (ROC + CALIB)
+# ============================================================ S7 MODEL PROOF (LOOP, honest)
 def _roc_points(target, n=80):
     """TPR = FPR**c, tune c so trapezoidal AUC == target."""
     def auc_of(c):
@@ -303,46 +303,44 @@ def _roc_points(target, n=80):
 
 
 def model_proof():
+    import math
     b = []
-    PW, PH = 470, 380           # panel plot box
+    # the banner the eye hits first — flips the "lower = worse" misread
+    b.append(T(60, 32, "THE HONEST SCORE IS THE LOWER ONE — 0.78 · THE GAP = THE LEAKAGE WE DELETED", "d-title"))
+    PW, PH = 470, 348
+    ax, ay = 70, 92
     # ---- panel A: ROC ----
-    ax, ay = 70, 70             # top-left of plot
-    b.append(T(ax, ay - 18, "ROC — leakage gap", "d-title"))
-    # axes
+    b.append(T(ax, ay - 16, "ROC — naive vs payer-grouped", "d-title"))
     b.append(L(ax, ay, ax, ay + PH, "d-axis"))
     b.append(L(ax, ay + PH, ax + PW, ay + PH, "d-axis"))
-    b.append(T(ax + PW / 2, ay + PH + 34, "false-positive rate", "d-cap", "middle"))
+    b.append(T(ax + PW / 2, ay + PH + 32, "false-positive rate", "d-cap", "middle"))
     b.append(f'<text x="{ax-44}" y="{ay+PH/2}" class="d-cap" text-anchor="middle" transform="rotate(-90 {ax-44} {ay+PH/2})">true-positive rate</text>')
-    # diagonal ref
     b.append(L(ax, ay + PH, ax + PW, ay, "d-ref"))
 
     def to_xy(px, py):
         return ax + px * PW, ay + PH - py * PH
     naive, auc_n = _roc_points(0.91)
     grouped, auc_g = _roc_points(0.78)
-    # wedge between curves (naive above grouped)
     top = " ".join(f"{x:.1f},{y:.1f}" for x, y in (to_xy(px, py) for px, py in naive))
     bot = " ".join(f"{x:.1f},{y:.1f}" for x, y in (to_xy(px, py) for px, py in reversed(grouped)))
     b.append(f'<polygon points="{top} {bot}" class="d-wedge"/>')
-    # curves
+
     def poly(pts, cls):
         d = "M " + " L ".join(f"{x:.1f} {y:.1f}" for x, y in (to_xy(px, py) for px, py in pts))
         return PATH(d, cls)
     b.append(poly(naive, "d-curve d-curve--naive"))
     b.append(poly(grouped, "d-curve d-curve--grouped"))
-    b.append(T(ax + PW - 6, ay + 70, f"naive {auc_n:.2f}", "d-cap", "end"))
-    b.append(T(ax + PW - 6, ay + 150, f"payer-grouped {auc_g:.2f}", "d-cap", "end"))
-    b.append(Tw(ax + 120, ay + PH - 70, ["= the leakage we removed", "(illustrative · synthetic)"], "d-cap", "start", 18))
+    b.append(T(ax + PW - 6, ay + 66, f"naive {auc_n:.2f} — memorised the client", "d-cap", "end"))
+    b.append(T(ax + PW - 6, ay + 150, f"payer-grouped {auc_g:.2f} — honest", "d-cap", "end"))
+    b.append(Tw(ax + 96, ay + PH - 84, ["= the leakage we deleted", "(“leakage” = the model cheating)"], "d-cap", "start", 18))
     # ---- panel B: calibration ----
-    bx, by = 640, 70
-    b.append(T(bx, by - 18, "Calibration — prices the bridge", "d-title"))
+    bx, by = 640, 92
+    b.append(T(bx, by - 16, "Calibration", "d-title"))
     b.append(L(bx, by, bx, by + PH, "d-axis"))
     b.append(L(bx, by + PH, bx + PW, by + PH, "d-axis"))
-    b.append(T(bx + PW / 2, by + PH + 34, "predicted probability", "d-cap", "middle"))
+    b.append(T(bx + PW / 2, by + PH + 32, "predicted probability", "d-cap", "middle"))
     b.append(L(bx, by + PH, bx + PW, by, "d-ref"))
-    b.append(T(bx + PW - 6, by + 24, "perfect", "d-cap", "end"))
-    # near-diagonal calibration curve with slight S
-    import math
+    b.append(T(bx + PW - 6, by + 22, "perfect", "d-cap", "end"))
     cal = []
     for i in range(21):
         x = i / 20
@@ -350,18 +348,21 @@ def model_proof():
         cal.append((bx + x * PW, by + PH - y * PH))
     d = "M " + " L ".join(f"{x:.1f} {y:.1f}" for x, y in cal)
     b.append(PATH(d, "d-curve d-curve--calib"))
-    b.append(Tw(bx + 30, by + 60, ["calibrated probability", "= what prices the bridge"], "d-cap", "start", 18))
+    b.append(Tw(bx + 26, by + 54, ["the model knows how", "sure it is — this prices", "the bridge"], "d-cap", "start", 18))
+    # the synthetic chip, same visual weight as the numbers (centred under both panels)
+    b.append(R(440, 484, 300, 30, "d-node--amber", 6))
+    b.append(T(590, 504, "ILLUSTRATIVE · SYNTHETIC — proves the method", "d-cap", "middle"))
     return write("model-proof", "".join(b), 1180, 520)
 
 
-# ============================================================ S8 MARKET + MODEL
+# ============================================================ S8 MARKET + MODEL (OBJECTIVE pays)
 def market_model():
     b = []
-    # TAM hero
+    # TAM hero + scale axes (rubric 7 stays on the wall)
     b.append(T(60, 70, "TAM", "d-title"))
     b.append(T(60, 150, "3.43M", "d-num", "start", 92))
     b.append(T(60, 188, "autónomos · Spain (Dec 2025)", "d-sub"))
-    b.append(T(60, 220, "scale: autónomo→agency · Spain→EU · payer-network", "d-cap"))
+    b.append(T(60, 220, "scales: autónomo→agency · Spain→EU · same-Payer network", "d-cap"))
     # GTM rail
     b.append(T(60, 280, "GO-TO-MARKET — CHANNELS OVER TIME", "d-title"))
     phases = [
@@ -386,16 +387,17 @@ def market_model():
         b.append(R(x, 96, 130, 96, cl))
         b.append(T(x + 65, 138, t, "d-label", "middle"))
         b.append(T(x + 65, 164, s, "d-sub", "middle"))
-    b.append(T(720, 232, "humans on grant only → TARGET cost-to-serve < CaixaBank 38.5% (baseline)", "d-cap"))
-    b.append(T(720, 254, "Nubank ~$0.80 / WeBank ~118k = ceiling, NOT peer", "d-cap"))
+    b.append(T(720, 232, "humans on grant only → target cost-to-income below CaixaBank 38.5%", "d-cap"))
+    b.append(T(720, 254, "(38.5% = audited FY24 baseline · our ratio comes from the pilot)", "d-cap"))
+    b.append(T(720, 276, "Concurso = public data — the moat is the gate wired into pricing, not the scrape", "d-cap"))
     return write("market-model", "".join(b), 1180, 420)
 
 
-# ============================================================ S9 MOAT TIERS
+# ============================================================ S9 MOAT TIERS (OBJECTIVE)
 def moat_tiers():
     b = []
-    # left: small-multiple compare
-    b.append(T(60, 56, "THEY CAN COPY…", "d-title"))
+    # left: small-multiple compare — one header replaces the repeated "copyable" tags
+    b.append(T(60, 56, "THEY CAN COPY THE SCREENS…", "d-title"))
     rivals = [("ImaginBank", "interchange + funnel"), ("Nubank", "cost curve at scale"),
               ("Qonto", "free tax pot widget"), ("Factoring", "one-off advance")]
     yy = 84
@@ -403,24 +405,22 @@ def moat_tiers():
         b.append(R(60, yy, 420, 46, "d-node"))
         b.append(T(78, yy + 22, r, "d-label"))
         b.append(T(78, yy + 40, s, "d-sub"))
-        b.append(T(462, yy + 30, "copyable", "d-cap", "end"))
         yy += 56
     b.append(R(60, yy + 6, 420, 52, "d-node--mint"))
-    b.append(T(78, yy + 28, "the borrow-less P&L", "d-label"))
+    b.append(T(78, yy + 28, "…not a bank that profits when you borrow less", "d-label"))
     b.append(T(78, yy + 48, "won't, not can't", "d-cap"))
-    # right: 3-rung tier bar
-    b.append(T(620, 56, "THE MOAT, HONESTLY TIERED", "d-title"))
-    # swatch (solid / dashed / hatched encodes the tier) + text on the dark ground (readable)
+    # right: 3-rung tier bar — self-describing labels, codenames off the wall
+    b.append(T(620, 56, "WHAT'S HARD TO COPY — HONESTLY", "d-title"))
     tiers = [
-        ("T0", "Payer-object + grouped-CV + reg-arch", "DEMONSTRATED today", "d-tier--t0"),
-        ("T1", "the closed loop", "compounding — NOT yet a moat (~0 today)", "d-tier--t1"),
-        ("T2", "the health objective", "softer — won't, not can't", "d-tier--t2"),
+        ("What we prove TODAY", "the Payer model + the leakage-clean method", "d-tier--t0"),
+        ("What compounds LATER (worth ~0 today)", "the learning loop — not yet a moat", "d-tier--t1"),
+        ("What they WON'T copy", "a bank that profits when you borrow less", "d-tier--t2"),
     ]
     yy = 100
-    for tag, t, s, cl in tiers:
+    for title, sub, cl in tiers:
         b.append(R(620, yy, 70, 56, cl, 8))
-        b.append(T(706, yy + 25, f"{tag} — {t}", "d-label"))
-        b.append(T(706, yy + 47, s, "d-sub"))
+        b.append(T(706, yy + 25, title, "d-label"))
+        b.append(T(706, yy + 47, sub, "d-sub"))
         yy += 76
     b.append(T(620, yy + 16, "data is NOT the moat (Verifactu/SII) ·", "d-cap"))
     b.append(T(620, yy + 38, "cross-customer bureau = roadmap-only, 2 gates", "d-cap"))
@@ -432,10 +432,11 @@ def validation_rail():
     b = []
     b.append(T(60, 56, "FOUR FALSIFIABLE TESTS — EACH PRE-SET TO KILL ITS OWN CLAIM", "d-title"))
     stations = [
-        ("Leakage gap", "DONE · 0.91→0.78", "illustrative · synthetic", True),
-        ("WTP test", "€12 ≥15% × auth ≥50% × > free", "docs/12 — the #1 weakness", False),
-        ("Concurso backtest", "write-offs pre-flagged", "median lead-time = weeks", False),
-        ("Bridge paper-trade", "fee 1–3% > loss + CoC", "per-Payer lift on real cohort", False),
+        ("Leakage gap", ["DONE · 0.91 → 0.78"], "illustrative · synthetic", True),
+        ("WTP test", ["enough pay €12 · authorize", "a real charge · beat free"],
+         "fast & falsifiable — the cheapest answer your money buys", False),
+        ("Concurso backtest", ["write-offs pre-flagged"], "median lead-time = weeks", False),
+        ("Bridge paper-trade", ["fee 1–3% > loss + cost of money"], "per-Payer lift on a real cohort", False),
     ]
     x = 60
     sw, gap = 230, 30
@@ -445,12 +446,12 @@ def validation_rail():
         cls = "d-node--mint" if done else "d-node"
         b.append(R(x, railY, sw, 130, cls))
         b.append(T(x + 16, railY + 28, t, "d-label"))
-        b.append(Tw(x + 16, railY + 56, [thr], "d-sub", "start", 16))
-        b.append(T(x + 16, railY + 96, sub, "d-cap"))
+        b.append(Tw(x + 16, railY + 54, thr, "d-sub", "start", 18))
+        b.append(T(x + 16, railY + 110, sub, "d-cap"))
         if done:
             b.append(T(x + sw - 16, railY + 28, "✓", "d-num", "end", 22))
         else:
-            b.append(padlock(x + sw - 26, railY + 24, None, 0.8))
+            b.append(clock(x + sw - 24, railY + 24))
         if i < 3:
             b.append(PATH(f"M {x+sw} {railY+65} H {x+sw+gap}", "d-edge"))
         x += sw + gap
@@ -465,12 +466,12 @@ def validation_rail():
 # ============================================================ S11 CLOSE BOARD
 def close_board():
     b = []
-    # team row
+    # team row — neutral rings (the reserved mint join-key ring is NOT for avatars)
     b.append(T(60, 56, "TEAM", "d-title"))
     names = ["Corrado", "Navid", "Manon", "Marti", "Rui", "Tim"]
     x = 60
     for n in names:
-        b.append(C(x + 28, 110, 26, "d-node--payer"))
+        b.append(C(x + 28, 110, 26, "d-node"))
         b.append(T(x + 28, 116, n[0], "d-num", "middle", 20))
         b.append(T(x + 28, 156, n, "d-cap", "middle"))
         x += 90
@@ -479,19 +480,19 @@ def close_board():
     b.append(Tw(x + 70, 104, ["credit-risk hire", "owns the grant"], "d-sub", "start", 18))
     # what AI changes / what stays human
     b.append(T(60, 220, "WHAT AI CHANGES", "d-title"))
-    for i, (t) in enumerate(["balance → live data", "dunning → care (disclosed)", "engagement → health"]):
-        b.append(R(60, 244 + i * 56, 380, 44, "d-node--mint"))
+    for i, t in enumerate(["balance → live data", "chasing late payers → helping, openly", "engagement → financial health"]):
+        b.append(R(60, 244 + i * 56, 400, 44, "d-node--mint"))
         b.append(T(80, 272 + i * 56, t, "d-label"))
-    b.append(T(520, 220, "WHAT STAYS HUMAN", "d-title"))
-    b.append(R(520, 244, 360, 100, "d-node--red"))
-    b.append(padlock(560, 280, None, 1.0))
-    b.append(Tw(600, 270, ["the credit GRANT — a ceiling", "autonomy can't climb", "+ the empathy / restructure call"], "d-label", "start", 22))
-    b.append(T(520, 372, "AI sizes · warns · orchestrates — never auto-grants", "d-cap"))
-    # funding card
-    b.append(T(920, 220, "THE ASK", "d-title"))
-    b.append(R(920, 244, 200, 130, "d-node--amber"))
-    b.append(Tw(936, 274, ["raise =", "ILLUSTRATIVE", "gated on WTP +", "real-data proof"], "d-sub", "start", 20))
-    b.append(T(60, 430, "We proved the SIGNAL, not the business — judge the honesty, fund the gates. #1 weakness = WTP.", "d-cap"))
+    b.append(T(540, 220, "WHAT STAYS HUMAN", "d-title"))
+    b.append(R(540, 244, 360, 100, "d-node--red"))
+    b.append(padlock(580, 282, None, 1.0))
+    b.append(Tw(620, 270, ["a human always signs the loan", "— never the AI", "+ the empathy / restructure call"], "d-label", "start", 22))
+    b.append(T(540, 372, "AI sizes · warns · orchestrates — never auto-grants", "d-cap"))
+    # funding card — concrete, gate-tied, ILLUSTRATIVE kept
+    b.append(T(940, 220, "THE ASK", "d-title"))
+    b.append(R(940, 244, 180, 130, "d-node--amber"))
+    b.append(Tw(956, 272, ["raise (ILLUSTRATIVE)", "to clear 3 gates:", "WTP · real-cohort", "lift · Concurso"], "d-sub", "start", 22))
+    b.append(T(60, 432, "We win when you borrow less — judge the honesty, fund the gates. #1 weakness = WTP.", "d-cap"))
     return write("close-board", "".join(b), 1160, 470)
 
 

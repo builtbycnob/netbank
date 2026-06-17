@@ -58,10 +58,21 @@
 
 /* ===== assertion-evidence stage slide ===== */
 .shead{ flex:none; margin-bottom:26px; }
+.shead-top{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:14px; }
 .kicker{
   font-family:var(--mono); font-size:var(--t-mono); letter-spacing:.16em; text-transform:uppercase;
   color:var(--mint); display:inline-block; margin-bottom:14px;
 }
+.shead-top .kicker{ margin-bottom:0; }
+
+/* spine breadcrumb — one object · one loop · one objective; quiet chrome, NEVER mint */
+.spine{
+  font-family:var(--mono); font-size:var(--t-mono); letter-spacing:.18em; text-transform:uppercase;
+  display:flex; gap:9px; flex:none; white-space:nowrap;
+}
+.spine span{ color:var(--text-3); }
+.spine span.on{ color:var(--text-2); }   /* active word brighter, not mint */
+.spine .sep{ color:var(--text-3); opacity:.55; }
 .assertion{
   font-family:var(--display); font-weight:700; letter-spacing:-.035em; line-height:1.06;
   font-size:var(--t-title); margin:0; color:var(--text); max-width:24ch; text-wrap:balance;

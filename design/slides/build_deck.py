@@ -214,6 +214,24 @@ def diagram_svg(name: str | None, assertion_txt: str) -> str:
     return f'<div class="evidence dgm">{raw}</div>'
 
 
+# spine breadcrumb: which of "one object · one loop · one objective" a slide proves.
+# Quiet mono chrome (active word brighter, never mint) so it never competes with the
+# slide's one mint focal element. Slides not mapped (problem/why-now, validation, close)
+# show all three dim — setup / ask, not a proof of one word.
+SPINE = {3: "OBJECT", 4: "OBJECT", 5: "OBJECT",
+         6: "LOOP", 7: "LOOP", 8: "OBJECTIVE", 9: "OBJECTIVE"}
+
+
+def spine_html(pos: int) -> str:
+    active = SPINE.get(pos)
+    parts = []
+    for i, w in enumerate(["OBJECT", "LOOP", "OBJECTIVE"]):
+        parts.append(f'<span class="{"on" if w == active else ""}">{w}</span>')
+        if i < 2:
+            parts.append('<span class="sep">·</span>')
+    return f'<div class="spine" aria-hidden="true">{"".join(parts)}</div>'
+
+
 def stage_section(item: dict) -> str:
     pos, srcs = item["pos"], item["sources"]
     assertion = item["assertion"] or (slides.get(srcs[0], {}).get("assertion") if srcs else "") or ""
@@ -231,7 +249,8 @@ def stage_section(item: dict) -> str:
     kick = f'<span class="kicker">{inline(kicker)}</span>' if kicker else ""
     labs = ("<ul class='labels'>" + "".join(f"<li>{inline(x)}</li>" for x in labels) + "</ul>") if labels else ""
     return (f'<section class="stage" data-slide="{pos}">\n'
-            f'  <div class="shead">{kick}<h2 class="assertion">{inline(assertion)}</h2></div>\n'
+            f'  <div class="shead"><div class="shead-top">{kick}{spine_html(pos)}</div>'
+            f'<h2 class="assertion">{inline(assertion)}</h2></div>\n'
             f'  {diagram_svg(diagram, assertion)}\n'
             f'  {labs}\n'
             f'  {notes_block(srcs)}\n'

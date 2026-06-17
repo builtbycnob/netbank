@@ -6,43 +6,40 @@
 > 1. **Pitch spine, rubric mapped on** — the teammates' 12-section pitch structure is the *narrative order*; all 8 ESADE rubric dimensions (the grading source of truth, docs/13) must visibly land inside it.
 > 2. **Labeled hypotheticals** — Traction / pipeline / funding-ask appear as *"what success would look like,"* with a persistent `ILLUSTRATIVE · not yet measured` tag (same discipline the deck already uses for the AUC numbers). Never claimed as real. No invented numbers.
 >
-> **Time budget:** 10–12 min target, **15 min hard cap** → a **16-slide spoken core** (~40s each) + an **appendix** (number-defense card, DEFENSE Q&A, the deep dimension slides, full comparison tables, conversational/sentiment detail) reached only if the professor grills. This is the docs/16 "stage deck vs leave-behind" split made literal.
+> **Time budget:** 10–12 min target, **15 min hard cap** → an **11-slide spoken core** (~1 min each, leaving margin for the 4-way handoffs and Q&A) + an **appendix** (number-defense card, DEFENSE Q&A, the deep dimension slides, full comparison tables, conversational/sentiment detail, the stack-synthesis slide) reached only if the professor grills. This is the docs/16 "stage deck vs leave-behind" split made literal. *(16 was too many for the time; the merges below get to 11. A 12th — a dedicated Reflection slide split off from #11 — is a cheap option if the team wants to foreground rubric dimension 8 for the grade.)*
 
 ---
 
-## The teammates' 12-section pitch spine → 16 NetBank slides
+## The teammates' 12-section pitch spine → 11 NetBank slides
 
-| # | Pitch section | Action-title assertion *(draft — final wording at build)* | Rubric | Primary visual primitive | Source |
+Merges from the first 16-slide draft: Netflix logic folds **into** the product/app slide (4); the before/after *turn* folds **into** the agents slide (6); Market joins Business model (8); Team + Funding + CTA + Reflection collapse into the close (11). The merged-out depth lives in the appendix.
+
+| # | Pitch section(s) | Action-title assertion *(draft — final wording at build)* | Rubric | Primary visual primitive | Source |
 |--|--|--|--|--|--|
 | 1 | **Intro / WHY** | *NetBank — your bank reads your invoices, not your balance.* | frame | brand mark + inverted-flywheel glyph (win-arrow **out**) | 09·S1 |
-| 2 | **Problem** | *Spain's micro-firms are solvent over the year but blind week to week — paid at ~81 days against a 60-day law.* | **1 Value prop** | hero number (**~81d** vs 60-day line) + the "balance that lies" 3-way split; villain named | 09·S3 + S1 |
+| 2 | **Problem + Why now** | *Solvent over the year, blind week to week — paid at ~81 days vs a 60-day law, just as three clocks strike (Verifactu/SII · the AI-Act · record late payment).* | **1 · 8** | hero **~81d** vs 60-day line + "balance that lies" 3-way split + a 3-clock rail | 09·S3 + **new** |
 | 3 | **Solution / VP** | *We read your invoices, forecast per-payer, and tell you when **not** to borrow.* | **1 Value prop** | three-live-truths panel + per-Payer reliability card + don't-borrow branch | 09·S5 |
-| 4 | **Why now?** ⟂*new* | *Three clocks struck at once: invoice data went live (Verifactu/SII), the AI-Act drew the credit line, late payment hit a record.* | **8 AI-banking** | three-clock / timeline rail | **new** (docs/01 + number card) |
-| 5 | **Product — the app** | *The whole thesis ships in eight live screens — a Command Center, not a balance.* | **6 Prototype** | phone still (Command Center) + AI-mode legend; **live demo = vertical sub-slide** | 09·S7 (app half) |
-| 6 | **Product — Netflix logic** | *Like Netflix, we recommend the next **decision** — not a catalog of loans to apply for.* | **8 AI-banking** | Netflix→NetBank split board, mint-light **only** the 2 load-bearing rows | 09·S2 |
-| 7 | **Product — ontology** | *Object boundaries do regulatory and statistical work a flat table can't — the Payer is first-class.* | **4 Structure** | three-band Palantir stack + Payer ring + red dashed boundary | 09·S6 |
-| 8 | **Product — Role of AI (the turn)** | *We rebuild today's rigid 5-step pipeline and add the one return arrow it can't have.* | **5 Role of AI** | **S8→S9 auto-animate morph** (grey boxes → mint loop + red grant padlock + mint retrain-arrow) | 09·S8 + S9 |
-| 9 | **Product — the agents** | *Five agents earn their seat in the P&L or the law — and humans touch only the credit grant.* | **5 Role of AI** | 2-band node diagram (CX surface / underwriting) + red padlock; CX agents as fragments | 09·S10–S12 |
-| 10 | **Product — the model (proof)** | *Our headline isn't a high AUC — it's the leakage we removed: 0.91 → 0.78.* | **6 Prototype** | **real** twin-ROC leakage-gap chart + calibration plot (AUC-accurate SVG) | 09·S7 (model half) |
-| 11 | **Market** | *3.43M autónomos, entered through the cheapest wedge — distress-registry and gestor channels.* | **7 Scale** | TAM figure + a GTM-channels-over-time rail | 09·S4/S18 + docs/07/14 |
-| 12 | **Competition + moat** | *Rivals can copy the screens; copying the health objective dilutes their P&L — and only Tier 0 is a moat today.* | **2 Competitive adv** | small-multiple compare (hard-to-copy row lit) **+** 3-rung tier bar (T0/T1/T2) | 09·S15 + S16 |
-| 13 | **Business model + customer** | *Three pillars, one retained account; we win at a cost-to-serve below CaixaBank's 38.5%.* | **3 Bus model · 7 Scale** | 3-pillar revenue diagram + unit-economics strip + risks/mitigation chips | 09·S13/S14 + S18 |
-| 14 | **Traction / Validation** | *No customers yet — but a falsifiable validation plan and an honest "what success looks like."* | validation | gated roadmap rail (real) **+** `ILLUSTRATIVE` pipeline/endorsers (hypothetical) | 09·S17 + docs/12 |
-| 15 | **Team + Funding** | *An ESADE team plus the one hire we'd add (credit/risk); a hypothetical raise tied to the gates.* | pitch | team row + funding-ask card stamped `ILLUSTRATIVE` against the roadmap gates | **new** (cohort + docs/14) |
-| 16 | **Call to action + reflection** | *What AI changes here, what stays human — and the one thing we'd build next.* | **8 AI-banking** | "what surprised us \| what stays human" two-column board + CTA | 09·S20 + S22 |
+| 4 | **Product — app + Netflix logic** | *Like Netflix we recommend the next **decision** — not a loan to apply for — shipped in 8 live screens.* | **6 · 8** | Netflix→NetBank split (2 rows lit) + phone still; **live demo = vertical sub-slide** | 09·S2 + S7-app |
+| 5 | **Product — ontology** | *Object boundaries do regulatory and statistical work a flat table can't — the Payer is first-class.* | **4 Structure** | three-band Palantir stack + Payer ring + red dashed boundary | 09·S6 |
+| 6 | **Product — Role of AI** | *We rebuild today's rigid 5-step pipeline into an agent loop — and humans touch only the credit grant.* | **5 Role of AI** | **S8→S9 auto-animate morph** + 2-band agent diagram + red grant padlock | 09·S8–S12 |
+| 7 | **Product — the model (proof)** | *Our headline isn't a high AUC — it's the leakage we removed: 0.91 → 0.78.* | **6 Prototype** | **real** twin-ROC leakage-gap chart + calibration plot (AUC-accurate SVG) | 09·S7-model |
+| 8 | **Market + Business model** | *3.43M autónomos via a distress-registry wedge — three pillars at a cost-to-serve below CaixaBank's 38.5%.* | **3 · 7** | TAM figure + GTM-channels rail + 3-pillar revenue diagram + unit-economics strip | 09·S4/S13/S14/S18 |
+| 9 | **Competition + moat** | *Rivals copy the screens; the health objective dilutes their P&L — and only Tier 0 is a moat today.* | **2 Competitive adv** | small-multiple compare (hard-to-copy row lit) **+** 3-rung tier bar (T0/T1/T2) | 09·S15 + S16 |
+| 10 | **Traction / Validation** | *No customers yet — but a falsifiable validation plan and an honest "what success looks like."* | validation | gated roadmap rail (real) **+** `ILLUSTRATIVE` pipeline/endorsers (hypothetical) | 09·S17 + docs/12 |
+| 11 | **Team · Funding · CTA · reflection** | *An ESADE team plus one hire; a hypothetical raise tied to the gates; what AI changes, what stays human.* | **8 AI-banking** | team row + funding card (`ILLUSTRATIVE`) + "what surprised us \| what stays human" board + CTA | 09·S20/S22 + **new** |
 
-**Rubric coverage (all 8 land, provable from the titles):** 1→S2,S3 · 2→S12 · 3→S13 · 4→S7 · 5→S8,S9 · 6→S5,S10 · 7→S11,S13 · 8→S4,S6,S16. Each spoken slide carries a mono kicker chip, e.g. `RUBRIC 6 · PROTOTYPE`.
+**Rubric coverage (all 8 land, provable from the titles):** 1→S2,S3 · 2→S9 · 3→S8 · 4→S5 · 5→S6 · 6→S4,S7 · 7→S8 · 8→S2,S4,S11. Each spoken slide carries a mono kicker chip, e.g. `RUBRIC 6 · PROTOTYPE`.
 
 ---
 
-## Timing budget (≈11 min)
+## Timing budget (≈11 min, ~1 min/slide)
 
-- **Act I — Why (slides 1–4):** ~2.5 min. The villain + the VP + why-now.
-- **Act II — Product & AI (5–10):** ~4.5 min. The deepest act (this is "Data-Driven Prototyping with **AI**"); the S8→S9 turn is the emotional beat.
-- **Act III — Business (11–13):** ~2.5 min. Market, competition/moat, model.
-- **Act IV — Ask & close (14–16):** ~1.5 min. Validation honesty, team/funding (fast), CTA + reflection.
+- **Act I — Why (slides 1–3):** ~2.5 min. The villain + why-now + the VP.
+- **Act II — Product & AI (4–7):** ~4.5 min. The deepest act (this is "Data-Driven Prototyping with **AI**"); the S8→S9 morph on slide 6 is the emotional turn.
+- **Act III — Business (8–9):** ~2.5 min. Market/model + competition/moat.
+- **Act IV — Ask & close (10–11):** ~1.5 min. Validation honesty, then team/funding/CTA/reflection.
 
-Appendix slides are **excluded from the running order** and from the count; each is one backup answer to a likely DEFENSE question.
+Appendix slides are **excluded from the running order** and from the count; each is one backup answer to a likely DEFENSE question (incl. the conversational/sentiment agents, the full comparison tables, and the stack-synthesis slide for prof gap G8).
 
 ---
 
@@ -59,16 +56,16 @@ This is the part that is **more than re-skinning** — flag for the team:
 
 ## Per-slide visual notes (the hero diagrams)
 
-Reuse one inline-SVG symbol set (docs/16 component vocabulary). Highlights beyond the table above:
+Reuse one inline-SVG symbol set (docs/16 component vocabulary). Slide numbers below are the **new running order**; `09·Sn` = the docs/09 content source. Highlights beyond the table above:
 
-- **S2 Netflix** — greyed NETFLIX column / mint NETBANK column, 5 aligned rows, fragment-revealed; **mint only on rows 1 (recommendation-not-application) and 5 (the loop)**; the 5-col table → notes.
-- **S6 ontology** — OBJECTS / LOGIC / ACTIONS bands; Payer chip mint-ringed as join key; one **red dashed** line slicing all three = "object boundary = leakage plane = legal regime"; fragment in the `_asof_issuance` tag + struck-through `paid_date = LABEL, never a feature`; cross-customer bureau shown **roadmap-only**.
-- **S8→S9 turn** — adjacent `data-auto-animate` sections, matching `data-id` on the 5 step nodes; surviving nodes glide into the loop, manual steps fade, the **mint return arrow** ("every realized payment date retrains the model") is the final fragment. The deck's sparkline turn.
-- **S10 model** — Chart A twin-ROC: naive 0.91 dim/dashed vs grouped 0.78 mint/solid, **amber-shaded wedge** in-frame "= the leakage we removed · illustrative · synthetic"; Chart B calibration vs y=x "this is what prices the bridge." Synthetic JSON **must integrate to 0.91 / 0.78** (build-checked); visually-hidden data table for a11y + "show me your data."
-- **S12 moat** — concede→pivot fragment (3 grey commodity chips collapse into one mint "retained account, net of tax pot, gated on Concurso" node) + **3-rung tier bar** (T0 solid-mint *demonstrated* / T1 grey-dashed *compounding, not yet present · ~0 today* / T2 hatched *softer · won't-not-can't*); red footnote "data is NOT the moat (Verifactu/SII); cross-customer bureau = roadmap-only, two gates."
-- **S14 roadmap** — gated rail, 5 stations (Concurso → Tax-Sweep+ → Paper-trade → Live+Servicing → Bureau), each gate a **red padlock stamped with its falsifiable test**; tier ribbon stays grey for T1 until station 3; servicing node fans `re-date · top-up · restructure` over struck-through `collections/dunning`.
+- **Slide 4 — Netflix + app** (09·S2 + S7-app) — greyed NETFLIX column / mint NETBANK column, 5 aligned rows, fragment-revealed; **mint only on rows 1 (recommendation-not-application) and 5 (the loop)**; a phone still beside it; the 5-col table → notes; live demo = vertical sub-slide.
+- **Slide 5 — ontology** (09·S6) — OBJECTS / LOGIC / ACTIONS bands; Payer chip mint-ringed as join key; one **red dashed** line slicing all three = "object boundary = leakage plane = legal regime"; fragment in the `_asof_issuance` tag + struck-through `paid_date = LABEL, never a feature`; cross-customer bureau shown **roadmap-only**.
+- **Slide 6 — the turn + agents** (09·S8→S9 + S10–S12) — adjacent `data-auto-animate` sections, matching `data-id` on the 5 step nodes; surviving nodes glide into the agent loop, manual steps fade, the **mint return arrow** ("every realized payment date retrains the model") is the final fragment (the deck's sparkline turn); the 2-band agent diagram (CX surface / underwriting) with the red grant padlock assembles via fragments; conversational/sentiment detail → notes/appendix.
+- **Slide 7 — the model** (09·S7) — Chart A twin-ROC: naive 0.91 dim/dashed vs grouped 0.78 mint/solid, **amber-shaded wedge** in-frame "= the leakage we removed · illustrative · synthetic"; Chart B calibration vs y=x "this is what prices the bridge." Synthetic JSON **must integrate to 0.91 / 0.78** (build-checked); visually-hidden data table for a11y + "show me your data."
+- **Slide 9 — competition + moat** (09·S15 + S16) — small-multiple compare board (the hard-to-copy row lit mint) leads into the concede→pivot fragment (3 grey commodity chips collapse into one mint "retained account, net of tax pot, gated on Concurso" node) + **3-rung tier bar** (T0 solid-mint *demonstrated* / T1 grey-dashed *compounding, not yet present · ~0 today* / T2 hatched *softer · won't-not-can't*); red footnote "data is NOT the moat (Verifactu/SII); cross-customer bureau = roadmap-only, two gates."
+- **Slide 10 — roadmap** (09·S17) — gated rail, 5 stations (Concurso → Tax-Sweep+ → Paper-trade → Live+Servicing → Bureau), each gate a **red padlock stamped with its falsifiable test**; tier ribbon stays grey for T1 until station 3; servicing node fans `re-date · top-up · restructure` over struck-through `collections/dunning`.
 
-The remaining slides (S3, S4, S5, S7-app, S9-agents, S11, S13, S15, S16) each get: action-title + one primitive (hero-number / split-panel / channel-rail / pillar-diagram / segment-matrix / two-column board) + ≤3 labels; prose → notes.
+The remaining slides (1 cover, 2 problem+why-now, 3 solution/VP, 8 market+business-model, 11 close) each get: action-title + one primitive (hero-number / 3-clock rail / three-truths panel / pillar-diagram + GTM rail / two-column board) + ≤3 labels; prose → notes.
 
 ---
 
@@ -108,7 +105,7 @@ In dependency order. None of it rewrites locked content — it adds channels and
 
 ## Acceptance gates (Task B "done")
 
-- [ ] 16 spoken slides, pitch-spine order; all 8 rubric dimensions provable from the titles + the kicker map; appendix excluded from the count.
+- [ ] 11 spoken slides (or 12 with a dedicated Reflection), pitch-spine order; all 8 rubric dimensions provable from the titles + the kicker map; appendix excluded from the count.
 - [ ] Build-time glance gates pass (no `<li>`/`<table>` on stage; headline 8–14 words; ≤3 labels; one mint focal element).
 - [ ] S10 charts are real SVG and integrate to AUC 0.91 / 0.78 (checked in build).
 - [ ] Traction/Funding visibly `ILLUSTRATIVE`; numbers consistent (gestor €60–100, ~81d / no ">85", €9/12/15 ≠ €9/19/39); differentiation = system + 3 tiers; bureau roadmap-only.

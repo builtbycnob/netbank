@@ -193,7 +193,7 @@ Definition of done:
 - Completed:
 - Branch / PR / output: `design/slides/` (reveal.js HTML deck auto-generated from docs/09 by `build_deck.py`) · live: https://builtbycnob.github.io/netbank/design/slides/ · @cf18031
 - Source docs: `docs/04-slides-mobile-experience.md`, `docs/08-agentic-loan-journey.md`, `docs/09-final-deck.md`, `docs/13-instructor-deck-alignment.md`, `docs/14-differentiation-and-roadmap.md`
-- Current note: **Task A (research + plan) DONE 2026-06-17.** Research workflow (9 agents, cited) → `docs/16-deck-design-principles.md` (gold-standard contract) + `docs/17-deck-rebuild-plan.md` (rebuild plan). Plan = **pitch spine × 8-rubric map**, 16 spoken slides for **10-12 min** + appendix; Traction/Funding as **labeled hypotheticals**; assertion-evidence authoring, kill the 0.5× scale hack, inline-SVG diagram system, real S7 ROC+calibration charts, offline leave-behind PDF. **Awaiting team sign-off before Task B (the actual rebuild).** v1 reveal.js deck (@cf18031) stands until then. .pptx still open (leave-behind PDF likely covers the handout need).
+- Current note: **Task A (research + plan) DONE 2026-06-17.** Research workflow (9 agents, cited) → `docs/16-deck-design-principles.md` (gold-standard contract) + `docs/17-deck-rebuild-plan.md` (rebuild plan). Plan = **pitch spine × 8-rubric map**, **11 spoken slides** (12 w/ dedicated reflection) for **10-12 min** + appendix; Traction/Funding as **labeled hypotheticals**; assertion-evidence authoring, kill the 0.5× scale hack, inline-SVG diagram system, real S7 ROC+calibration charts, offline leave-behind PDF. **Awaiting team sign-off before Task B (the actual rebuild).** v1 reveal.js deck (@cf18031) stands until then. .pptx still open (leave-behind PDF likely covers the handout need).
 
 Create or finalize the PowerPoint deck for the course presentation. The existing docs already define a 20-25 slide target and a strong `docs/09-final-deck.md` structure with bullets, visuals, speaker notes, and defense answers.
 
@@ -326,4 +326,4 @@ Definition of done:
 |---|---|---|
 | 2026-06-17 | Created initial tracker from README and docs/00-14. | Codex |
 | 2026-06-17 | NET-08 differentiation reframe applied to docs/09 (3-tier honest moat, @aef9df4); NET-05 reveal.js HTML deck v1 built (design/slides, @cf18031) — not gold-standard yet, rebuild next. | Claude session (cnob) |
-| 2026-06-17 | NET-05 Task A done: deck-design research + plan (docs/16 principles + docs/17 pitch-spine×rubric rebuild plan, 16 slides / 10-12 min, labeled-hypothetical traction/funding). Awaiting team sign-off before rebuild. Added collaborator RUISR (Rui, write). | Claude session (cnob) |
+| 2026-06-17 | NET-05 Task A done: deck-design research + plan (docs/16 principles + docs/17 pitch-spine×rubric rebuild plan, 11 slides / 10-12 min, labeled-hypothetical traction/funding). Awaiting team sign-off before rebuild. Added collaborator RUISR (Rui, write). | Claude session (cnob) |

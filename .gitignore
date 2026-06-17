@@ -16,3 +16,6 @@ node_modules/
 dist/
 .env
 .env.*
+
+# Playwright MCP scratch
+.playwright-mcp/

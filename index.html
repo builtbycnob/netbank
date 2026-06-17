@@ -2,10 +2,64 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=./design/mockups/index.html">
-<title>NetBank</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NetBank — ESADE MIM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@400..700&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#090B0E; --surface:#13171D; --line:rgba(255,255,255,.08); --text:#ECEEF1;
+    --text-2:#99A2AD; --text-3:#5E6772; --mint:#7FE7A6;
+    --display:'Bricolage Grotesque',sans-serif; --sans:'Geist',system-ui,sans-serif; --mono:'Geist Mono',monospace; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{ font-family:var(--sans); color:var(--text); letter-spacing:-.01em; min-height:100vh;
+    background:
+      radial-gradient(1100px 700px at 12% -8%, rgba(116,178,255,.10), transparent 60%),
+      radial-gradient(1000px 720px at 92% 8%, rgba(127,231,166,.08), transparent 60%), var(--bg);
+    display:flex; align-items:center; justify-content:center; padding:32px; }
+  .wrap{ width:100%; max-width:760px; }
+  .brand{ display:flex; align-items:center; gap:12px; margin-bottom:22px; }
+  .mark{ width:34px; height:34px; border-radius:10px; background:linear-gradient(150deg,var(--mint),#3FB47B);
+    display:grid; place-items:center; color:#06281A; font-family:var(--display); font-weight:800; font-size:19px;
+    box-shadow:0 5px 20px rgba(127,231,166,.3); }
+  .brand b{ font-family:var(--display); font-weight:700; font-size:21px; }
+  .brand span{ color:var(--text-3); font-size:12.5px; font-family:var(--mono); border:1px solid var(--line); padding:3px 9px; border-radius:999px; }
+  h1{ font-family:var(--display); font-weight:700; font-size:clamp(28px,4.6vw,40px); line-height:1.05; letter-spacing:-.03em; margin-bottom:10px; }
+  h1 em{ font-style:normal; color:var(--mint); }
+  .lede{ color:var(--text-2); font-size:15.5px; line-height:1.6; max-width:560px; margin-bottom:30px; }
+  .cards{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:560px){ .cards{ grid-template-columns:1fr; } }
+  a.card{ display:block; text-decoration:none; color:inherit; background:var(--surface); border:1px solid var(--line);
+    border-radius:18px; padding:22px; transition:.2s; }
+  a.card:hover{ border-color:var(--mint); transform:translateY(-2px); }
+  .card .eyb{ font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--mint); margin-bottom:10px; }
+  .card h2{ font-family:var(--display); font-weight:600; font-size:19px; margin-bottom:6px; }
+  .card p{ color:var(--text-2); font-size:13px; line-height:1.5; }
+  .card .go{ margin-top:14px; font-family:var(--mono); font-size:12px; color:var(--text-3); }
+  a.card:hover .go{ color:var(--mint); }
+  footer{ margin-top:28px; color:var(--text-3); font-family:var(--mono); font-size:11.5px; }
+</style>
 </head>
 <body>
-<p>Redirecting to <a href="./design/mockups/index.html">NetBank mockups</a>…</p>
+  <main class="wrap">
+    <div class="brand"><div class="mark">N</div><b>NetBank</b><span>ESADE MIM · Data-Driven Prototyping with AI</span></div>
+    <h1>Your bank reads your <em>invoices</em>, not your balance.</h1>
+    <p class="lede">An AI-native business neobank + embedded lender for Spanish autónomos, agencies and bootstrapped &lt;10-employee companies. Objective = customer financial health.</p>
+    <div class="cards">
+      <a class="card" href="./design/slides/">
+        <div class="eyb">Presentation</div>
+        <h2>Final deck</h2>
+        <p>22 slides across all eight rubric dimensions, with per-slide speaker notes (press <b>S</b>) and oral-defense Q&amp;A.</p>
+        <div class="go">open deck →</div>
+      </a>
+      <a class="card" href="./design/mockups/">
+        <div class="eyb">Prototype</div>
+        <h2>Product mockups</h2>
+        <p>Clickable dark “instrument-panel” app — Command Center, agentic financing, invoices/OCR, services.</p>
+        <div class="go">open mockups →</div>
+      </a>
+    </div>
+    <footer>builtbycnob/netbank · working name v0.1</footer>
+  </main>
 </body>
 </html>

@@ -1,0 +1,158 @@
+/* NetBank — reveal.js deck theme · dark "instrument panel"
+   Matches design/mockups/styles.css tokens. Generated deck = design/slides/index.html (build_deck.py). */
+
+:root{
+  --bg:#090B0E; --bg-2:#0E1116; --surface:#13171D; --surface-2:#191E26;
+  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.05);
+  --text:#ECEEF1; --text-2:#99A2AD; --text-3:#5E6772;
+  --mint:#7FE7A6; --mint-dim:rgba(127,231,166,.13);
+  --blue:#74B2FF; --blue-dim:rgba(116,178,255,.13);
+  --amber:#F5C265; --amber-dim:rgba(245,194,101,.13);
+  --red:#FF8585; --red-dim:rgba(255,133,133,.12);
+  --display:'Bricolage Grotesque',sans-serif;
+  --sans:'Geist','Geist Fallback',system-ui,sans-serif;
+  --mono:'Geist Mono',ui-monospace,monospace;
+}
+
+/* ---- reveal core vars ---- */
+.reveal{
+  --r-background-color:#090B0E;
+  --r-main-color:var(--text);
+  --r-heading-color:var(--text);
+  --r-link-color:var(--mint);
+  --r-link-color-hover:var(--mint);
+  --r-selection-background-color:rgba(127,231,166,.28);
+  --r-selection-color:#fff;
+  font-family:var(--sans);
+  letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* atmosphere: radial glows + grain, like the mockups */
+.reveal-viewport{
+  background:
+    radial-gradient(1200px 760px at 10% -10%, rgba(116,178,255,.10), transparent 60%),
+    radial-gradient(1100px 780px at 94% 6%, rgba(127,231,166,.08), transparent 60%),
+    #090B0E;
+}
+.reveal-viewport::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.20;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* ---- slide layout: top-aligned, left-set, dense-friendly ---- */
+.reveal .slides{ text-align:left; }
+.reveal .slides section{
+  height:840px !important; padding:46px 64px 40px; display:flex; flex-direction:column;
+  overflow:hidden;
+}
+.reveal .slides section.cover,
+.reveal .slides section.appendix{ justify-content:center; }
+
+/* slide head */
+.slide-head{ display:flex; align-items:baseline; gap:16px; margin-bottom:18px; flex:none; }
+.slide-head .num{
+  font-family:var(--mono); font-size:13px; letter-spacing:.12em; color:var(--text-3);
+  border:1px solid var(--line); border-radius:999px; padding:4px 11px; flex:none;
+  text-transform:uppercase;
+}
+.reveal h2{
+  font-family:var(--display); font-weight:700; letter-spacing:-.025em;
+  font-size:32px; line-height:1.08; margin:0; text-transform:none; color:var(--text);
+}
+
+/* body holds bullets + tables; .fit is scaled by JS so the whole slide fits one screen */
+.slide-body{ flex:1; min-height:0; overflow:hidden; padding-right:6px; }
+.slide-body .fit{ transform-origin:top left; will-change:transform; }
+
+/* bullets */
+.reveal .slide-body ul{ list-style:none; margin:0; padding:0; }
+.reveal .slide-body li{
+  position:relative; padding:0 0 0 24px; margin:0 0 13px; max-width:60ch;
+  font-size:21px; line-height:1.5; color:var(--text);
+}
+.reveal .slide-body li::before{
+  content:""; position:absolute; left:2px; top:.62em; width:9px; height:2px;
+  background:var(--mint); border-radius:2px;
+}
+.reveal strong{ color:#fff; font-weight:600; }
+.reveal em{ color:var(--text-2); font-style:italic; }
+.reveal code{
+  font-family:var(--mono); font-size:.86em; color:var(--blue);
+  background:var(--blue-dim); padding:1px 6px; border-radius:6px; letter-spacing:-.01em;
+}
+
+/* tier / signal accents picked up from bold ALLCAPS in source render nicely as strong;
+   a couple of helper classes the renderer may add */
+.tag{ font-family:var(--mono); font-size:.82em; letter-spacing:.04em; }
+
+/* tables */
+.reveal .slide-body table{
+  border-collapse:collapse; width:100%; margin:6px 0 12px; font-size:15px;
+  border:1px solid var(--line); border-radius:12px; overflow:hidden;
+}
+.reveal .slide-body th{
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--mint); text-align:left; padding:9px 11px; background:var(--surface-2);
+  border-bottom:1px solid var(--line); vertical-align:top;
+}
+.reveal .slide-body td{
+  padding:9px 11px; border-bottom:1px solid var(--line-2); color:var(--text-2);
+  line-height:1.42; vertical-align:top;
+}
+.reveal .slide-body tr:last-child td{ border-bottom:none; }
+.reveal .slide-body td strong{ color:var(--text); }
+
+/* visual-direction brief — collapsed by default, dim, designer-facing */
+.visual{ flex:none; margin-top:10px; border-top:1px dashed var(--line); padding-top:9px; }
+.visual summary{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--text-3); cursor:pointer; list-style:none; user-select:none;
+}
+.visual summary::-webkit-details-marker{ display:none; }
+.visual summary::before{ content:"◆ "; color:var(--mint); }
+.visual summary:hover{ color:var(--text-2); }
+.visual p{ margin:9px 0 0; font-size:13px; line-height:1.55; color:var(--text-3); max-width:90ch; }
+
+/* ---- cover ---- */
+.cover .brand{ display:flex; align-items:center; gap:12px; margin-bottom:34px; }
+.cover .mark{
+  width:38px; height:38px; border-radius:11px; background:linear-gradient(150deg,var(--mint),#3FB47B);
+  display:grid; place-items:center; color:#06281A; font-family:var(--display); font-weight:800; font-size:21px;
+  box-shadow:0 6px 22px rgba(127,231,166,.32);
+}
+.cover .brand b{ font-family:var(--display); font-weight:700; font-size:23px; letter-spacing:-.02em; }
+.cover .brand span{
+  color:var(--text-3); font-size:13px; font-family:var(--mono);
+  border:1px solid var(--line); padding:3px 10px; border-radius:999px;
+}
+.cover h1{
+  font-family:var(--display); font-weight:700; letter-spacing:-.035em; line-height:1.0;
+  font-size:clamp(44px,6.4vw,84px); margin:0 0 26px; max-width:18ch; text-transform:none; color:var(--text);
+}
+.cover h1 em{ font-style:normal; color:var(--mint); }
+.cover .sub{ font-size:24px; line-height:1.5; color:var(--text-2); max-width:46ch; margin:0 0 10px; }
+.cover .sub strong{ color:var(--text); font-weight:600; }
+.cover .meta{
+  margin-top:30px; font-family:var(--mono); font-size:13.5px; color:var(--text-3); letter-spacing:.02em;
+  display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+}
+.cover .meta .pill{ border:1px solid var(--line); border-radius:999px; padding:5px 12px; }
+
+/* eyebrow used on coverage/appendix */
+.eyebrow{
+  font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--mint); margin-bottom:14px;
+}
+.appendix h2{ font-size:28px; }
+.lead{ color:var(--text-2); font-size:18px; line-height:1.5; max-width:60ch; margin:0 0 16px; }
+
+/* ---- reveal chrome ---- */
+.reveal .progress{ color:var(--mint); height:3px; }
+.reveal .slide-number{
+  font-family:var(--mono); font-size:12px; color:var(--text-3); background:transparent; right:18px; bottom:14px;
+}
+.reveal .controls{ color:var(--mint); }
+
+/* print/pdf: let dense slides flow */
+@media print{ .reveal .slides section{ overflow:visible; height:auto; } }

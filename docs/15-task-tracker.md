@@ -186,14 +186,14 @@ Definition of done:
 
 - [x] Claimed / in progress
 - [ ] Done
-- Status: In progress
+- Status: Review
 - Owner: Claude session (cnob)
 - Started: 2026-06-17
 - Last updated: 2026-06-17
 - Completed:
-- Branch / PR / output: `design/slides/` (reveal.js HTML deck auto-generated from docs/09 by `build_deck.py`) · live: https://builtbycnob.github.io/netbank/design/slides/ · @cf18031
-- Source docs: `docs/04-slides-mobile-experience.md`, `docs/08-agentic-loan-journey.md`, `docs/09-final-deck.md`, `docs/13-instructor-deck-alignment.md`, `docs/14-differentiation-and-roadmap.md`
-- Current note: **Task A (research + plan) DONE 2026-06-17.** Research workflow (9 agents, cited) → `docs/16-deck-design-principles.md` (gold-standard contract) + `docs/17-deck-rebuild-plan.md` (rebuild plan). Plan = **pitch spine × 8-rubric map**, **11 spoken slides** (12 w/ dedicated reflection) for **10-12 min** + appendix; Traction/Funding as **labeled hypotheticals**; assertion-evidence authoring, kill the 0.5× scale hack, inline-SVG diagram system, real S7 ROC+calibration charts, offline leave-behind PDF. **Awaiting team sign-off before Task B (the actual rebuild).** v1 reveal.js deck (@cf18031) stands until then. .pptx still open (leave-behind PDF likely covers the handout need).
+- Branch / PR / output: `design/slides/` (gold-standard reveal.js deck, manifest-driven `build_deck.py` + `diagrams/_gen.py` + self-hosted fonts) · live: https://builtbycnob.github.io/netbank/design/slides/ · @3c9b825
+- Source docs: `docs/04-slides-mobile-experience.md`, `docs/08-agentic-loan-journey.md`, `docs/09-final-deck.md`, `docs/13-instructor-deck-alignment.md`, `docs/14-differentiation-and-roadmap.md`, `docs/16-deck-design-principles.md`, `docs/17-deck-rebuild-plan.md`
+- Current note: **Task A + Task B DONE 2026-06-17 (gold-standard rebuild shipped, @3c9b825).** Research (9-agent workflow, cited) → `docs/16` principles + `docs/17` plan. Rebuilt to **11-slide pitch spine × 8-rubric map** (~11 min): assertion-evidence (one action-title + one inline-SVG visual + ≤3 labels per slide; all prose/Q&A → speaker notes), the 0.5× **scale hack deleted**, shared inline-SVG diagram system, **real S7 ROC leakage-gap + calibration charts** (data-accurate to AUC 0.91/0.78), rigid→loop morph w/ human-grant padlock, 3-tier moat honesty encoding, **self-hosted fonts** (offline-safe). Content drafted + adversarially verified (11-agent workflow); deck adversarially audited (4-agent: numbers clean; honesty/rubric must-fixes applied — S8 "beat"→target, Concurso "moat"→gate, rubric map renumbered, S4 kicker de-duped). All 11 slides Playwright-verified; build = 0 warnings, glance gates pass. **Pending: team review + oral rehearsal.** Open: editable **.pptx** (DoD asks for it; current handout = offline leave-behind PDF via `?print-pdf`); deferred polish = P10 fragments/auto-animate pacing.
 
 Create or finalize the PowerPoint deck for the course presentation. The existing docs already define a 20-25 slide target and a strong `docs/09-final-deck.md` structure with bullets, visuals, speaker notes, and defense answers.
 
@@ -327,3 +327,4 @@ Definition of done:
 | 2026-06-17 | Created initial tracker from README and docs/00-14. | Codex |
 | 2026-06-17 | NET-08 differentiation reframe applied to docs/09 (3-tier honest moat, @aef9df4); NET-05 reveal.js HTML deck v1 built (design/slides, @cf18031) — not gold-standard yet, rebuild next. | Claude session (cnob) |
 | 2026-06-17 | NET-05 Task A done: deck-design research + plan (docs/16 principles + docs/17 pitch-spine×rubric rebuild plan, 11 slides / 10-12 min, labeled-hypothetical traction/funding). Awaiting team sign-off before rebuild. Added collaborator RUISR (Rui, write). | Claude session (cnob) |
+| 2026-06-17 | NET-05 Task B done: gold-standard deck rebuilt (@edf704c) + adversarial-audit fixes (@3c9b825). 11-slide pitch spine, assertion-evidence, real SVG diagrams + AUC-accurate S7 charts, scale-hack deleted, self-hosted fonts. 3 workflows (research / content-draft+verify / audit). Status → Review (team review + .pptx open). | Claude session (cnob) |

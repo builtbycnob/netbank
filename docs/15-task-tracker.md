@@ -184,16 +184,16 @@ Definition of done:
 
 ## NET-05 - Presentation PowerPoint
 
-- [ ] Claimed / in progress
+- [x] Claimed / in progress
 - [ ] Done
-- Status: Not started
-- Owner:
-- Started:
-- Last updated:
+- Status: In progress
+- Owner: Claude session (cnob)
+- Started: 2026-06-17
+- Last updated: 2026-06-17
 - Completed:
-- Branch / PR / output:
+- Branch / PR / output: `design/slides/` (reveal.js HTML deck auto-generated from docs/09 by `build_deck.py`) · live: https://builtbycnob.github.io/netbank/design/slides/ · @cf18031
 - Source docs: `docs/04-slides-mobile-experience.md`, `docs/08-agentic-loan-journey.md`, `docs/09-final-deck.md`, `docs/13-instructor-deck-alignment.md`, `docs/14-differentiation-and-roadmap.md`
-- Current note:
+- Current note: HTML reveal.js deck v1 built (25 sections, speaker notes via S, dark instrument-panel theme). **NOT yet gold-standard** (faithful to the docs/09 script → text-dense; dense slides auto-fit ~0.5) and **not .pptx**. NEXT = research world-class deck design, then rebuild (split dense slides, real diagrams for [VISUAL], radical text reduction); .pptx export still open.
 
 Create or finalize the PowerPoint deck for the course presentation. The existing docs already define a 20-25 slide target and a strong `docs/09-final-deck.md` structure with bullets, visuals, speaker notes, and defense answers.
 
@@ -283,16 +283,16 @@ Definition of done:
 
 ## NET-08 - Differentiation: How We Are Different and Why the System Is Better
 
-- [ ] Claimed / in progress
+- [x] Claimed / in progress
 - [ ] Done
-- Status: Not started
-- Owner:
-- Started:
-- Last updated:
+- Status: Review
+- Owner: Claude session (cnob)
+- Started: 2026-06-17
+- Last updated: 2026-06-17
 - Completed:
-- Branch / PR / output:
+- Branch / PR / output: docs/09 Slides 13/16/17 (+ consistency across the deck) · @aef9df4
 - Source docs: `docs/01-client-and-evidence.md`, `docs/05-predictive-ai.md`, `docs/08-agentic-loan-journey.md`, `docs/09-final-deck.md`, `docs/11-team-ideas-evaluation.md`, `docs/14-differentiation-and-roadmap.md`
-- Current note:
+- Current note: Differentiation REFRAME applied to docs/09 per docs/14 verdict — "one object, one loop, one objective" in three honest tiers (T0 demonstrated today: Payer-object + grouped-CV + reg-arch · T1 the loop = compounding mechanism, NOT yet present · T2 softer objective); concede-then-pivot on S16, gated roadmap S17, deferred cross-customer bureau dropped from present differentiation. Standalone-feature overclaims removed; whole-deck adversarial audit (professor + Qonto VP + factor) = clean. Needs team review.
 
 Write the differentiation argument in a way that is strong but not overclaimed. The docs are clear that Tax-Sweep+, BORME/Concurso checks, and factoring-style bridges are not defensible as standalone features. The stronger argument is the system: one object, one loop, one objective.
 
@@ -325,3 +325,4 @@ Definition of done:
 | Date | Change | By |
 |---|---|---|
 | 2026-06-17 | Created initial tracker from README and docs/00-14. | Codex |
+| 2026-06-17 | NET-08 differentiation reframe applied to docs/09 (3-tier honest moat, @aef9df4); NET-05 reveal.js HTML deck v1 built (design/slides, @cf18031) — not gold-standard yet, rebuild next. | Claude session (cnob) |

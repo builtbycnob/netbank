@@ -147,7 +147,7 @@ Sequence as a sparkline that oscillates "what is" vs "what could be"; name **one
 ## Build-time glance gates (operationalized acceptance)
 
 The build script asserts these per rendered `<section>` (fail the build, not the eyeball):
-1. **Zero `<li>` and zero `<table>`** in the on-stage `<section>` (all in `<aside>`/appendix).
+1. **Zero prose `<li>` and zero `<table>`** in the on-stage `<section>` (all in `<aside>`/appendix). *The one sanctioned exception: the ≤3 on-visual labels render as `<ul class="labels"><li>` — these are short fragments (P1/P7), not prose, and the build exempts `ul.labels`.*
 2. **Action-title 8–14 words** (token count).
 3. **≤12 words of non-headline on-slide text**, OR ≤3 short labels.
 4. **Exactly one mint focal element** on the focal layer (count `fill/stroke=mint`).

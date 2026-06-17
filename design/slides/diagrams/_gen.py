@@ -234,8 +234,6 @@ def ontology():
     b.append(T(ix, 60, "PAYER = JOIN KEY", "d-title"))
     b.append(C(ix + 70, 220, 30, "d-node--payer"))
     b.append(T(ix + 70, 226, "Payer", "d-sub", "middle"))
-    for i, dy in enumerate([-70, 0, 70]):
-        b.append(C(ix + 70, 220 + dy * 1.6 + 0, 0, "d-node"))  # noop spacing
     for i, yy in enumerate([130, 220, 310]):
         b.append(C(ix + 150, yy, 16, "d-node--mint"))
         b.append(PATH(f"M {ix+134} {yy} H {ix+100}", "d-edge"))
@@ -382,13 +380,13 @@ def market_model():
         px += 340
     # 3 pillars (right)
     b.append(T(720, 70, "THREE PILLARS · ONE OBJECTIVE", "d-title"))
-    pillars = [("Tax-Sweep+", "revenue", "d-node--mint"), ("Concurso", "moat (cheap)", "d-node--blue"), ("Bridge fee", "margin (paper)", "d-node--amber")]
+    pillars = [("Tax-Sweep+", "revenue", "d-node--mint"), ("Concurso", "distress gate", "d-node--blue"), ("Bridge fee", "margin (paper)", "d-node--amber")]
     for i, (t, s, cl) in enumerate(pillars):
         x = 720 + i * 150
         b.append(R(x, 96, 130, 96, cl))
         b.append(T(x + 65, 138, t, "d-label", "middle"))
         b.append(T(x + 65, 164, s, "d-sub", "middle"))
-    b.append(T(720, 232, "humans on grant only → cost-to-serve < CaixaBank 38.5%", "d-cap"))
+    b.append(T(720, 232, "humans on grant only → TARGET cost-to-serve < CaixaBank 38.5% (baseline)", "d-cap"))
     b.append(T(720, 254, "Nubank ~$0.80 / WeBank ~118k = ceiling, NOT peer", "d-cap"))
     return write("market-model", "".join(b), 1180, 420)
 

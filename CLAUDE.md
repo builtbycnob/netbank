@@ -44,6 +44,8 @@ Live prototype: https://builtbycnob.github.io/netbank/ (8 dark mobile screens)
 | 13-instructor-deck-alignment.md | Instructor sessions 7-8 sprint spine; gap queue G1-G8 | Checking whether the deck covers the professor rubric |
 | 14-differentiation-and-roadmap.md | Adversarial stress-test on differentiation; product roadmap; what survives each attack | Any differentiation, moat, or roadmap task |
 | 15-task-tracker.md | Live task board - claim, update, and complete tasks here | Every task. Update it when you start, change status, or finish |
+| 16-deck-design-principles.md | Gold-standard slide-design contract (assertion-evidence, action titles, on-slide/notes split, inline-SVG system, glance gates), cited | Any deck/slide design or build task |
+| 17-deck-rebuild-plan.md | Deck rebuild plan: pitch-spine running order (16 slides) × 8-rubric map, timing, per-slide spec, new-content list, build_deck.py/theme.css changes | Any deck rebuild, running-order, or NET-05 task |
 
 ### design/mockups/
 

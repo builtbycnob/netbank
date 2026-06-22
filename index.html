@@ -37,6 +37,10 @@
   .card p{ color:var(--text-2); font-size:13px; line-height:1.5; }
   .card .go{ margin-top:14px; font-family:var(--mono); font-size:12px; color:var(--text-3); }
   a.card:hover .go{ color:var(--mint); }
+  a.card.feature{ grid-column:1 / -1; border-color:rgba(127,231,166,.35);
+    background:linear-gradient(150deg,rgba(127,231,166,.10),rgba(127,231,166,.02) 60%),var(--surface); }
+  a.card.feature h2{ font-size:22px; }
+  a.card.feature .go{ color:var(--mint); }
   footer{ margin-top:28px; color:var(--text-3); font-family:var(--mono); font-size:11.5px; }
 </style>
 </head>
@@ -46,16 +50,22 @@
     <h1>Your bank reads your <em>invoices</em>, not your balance.</h1>
     <p class="lede">An AI-native business neobank + embedded lender for Spanish autónomos, agencies and bootstrapped &lt;10-employee companies. Objective = customer financial health.</p>
     <div class="cards">
+      <a class="card feature" href="./design/demo/">
+        <div class="eyb">Live prototype</div>
+        <h2>Interactive demo</h2>
+        <p>The product, clickable. Tap the balance to split it into <b>three live truths</b>, watch the tax slice sweep itself away, open a per-Payer reliability screen, trip Concurso Radar, and run the nine-agent bridge to its human-review gate — or take the 90-second guided tour.</p>
+        <div class="go">open the demo →</div>
+      </a>
       <a class="card" href="./design/slides/">
         <div class="eyb">Presentation</div>
-        <h2>Final deck</h2>
-        <p>22 slides across all eight rubric dimensions, with per-slide speaker notes (press <b>S</b>) and oral-defense Q&amp;A.</p>
+        <h2>Pitch deck</h2>
+        <p>11-slide pitch spine across all eight rubric dimensions, with per-slide speaker notes (press <b>S</b>) and oral-defense Q&amp;A.</p>
         <div class="go">open deck →</div>
       </a>
       <a class="card" href="./design/mockups/">
-        <div class="eyb">Prototype</div>
-        <h2>Product mockups</h2>
-        <p>Clickable dark “instrument-panel” app — Command Center, agentic financing, invoices/OCR, services.</p>
+        <div class="eyb">Reference</div>
+        <h2>Static screens</h2>
+        <p>The original 8-frame dark “instrument-panel” gallery — three home concepts plus financing, invoices/OCR and services.</p>
         <div class="go">open mockups →</div>
       </a>
     </div>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NetBank — Interactive Product Demo</title>
+<meta name="description" content="A clickable prototype of NetBank: three live truths, per-Payer reliability, Tax-Sweep+, Concurso Radar, and a human-reviewed receivable bridge.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@400..700&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<div class="stage">
+
+  <!-- ============================ LEFT RAIL ============================ -->
+  <aside class="rail">
+    <div class="brand">
+      <div class="mark">N</div><b>NetBank</b>
+      <span class="tag">demo · v0.1</span>
+    </div>
+
+    <div>
+      <h1>Your bank reads your <em>invoices</em>, not just your balance.</h1>
+      <p class="lede">A clickable prototype for VAT-registered Spanish micro-firms with late-paid B2B income. Tap anything — or take the 90-second guided tour through the thesis.</p>
+    </div>
+
+    <button class="tourbtn" id="startTour">
+      <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9z"/></svg>
+      Take the guided tour
+    </button>
+
+    <div class="rail-sect">
+      <span class="eyb">Jump to a screen</span>
+      <div class="jumps" id="jumps">
+        <button class="jump" data-go="home">Home</button>
+        <button class="jump" data-go="money">Money</button>
+        <button class="jump" data-go="scan">Scan / Pay</button>
+        <button class="jump" data-go="financing">Financing</button>
+        <button class="jump" data-go="invoices">Invoices</button>
+        <button class="jump" data-go="payer">Payer detail</button>
+        <button class="jump" data-go="bridge">Bridge agents</button>
+        <button class="jump" data-go="services">Services</button>
+        <button class="jump" data-go="pricing">Pricing</button>
+        <button class="jump" data-go="about">About / numbers</button>
+      </div>
+    </div>
+
+    <div class="rail-sect">
+      <span class="eyb">How to read the AI</span>
+      <div class="legend">
+        <div class="leg"><span class="ai predict">predict</span><span>An estimate with a confidence band. No action taken — you can inspect the assumptions.</span></div>
+        <div class="leg"><span class="ai recommend">recommend</span><span>The AI suggests; <b>your tap is the decision.</b></span></div>
+        <div class="leg"><span class="ai act">act</span><span>The system did something reversible (sweep, categorise, match) — always with <b>Undo</b>.</span></div>
+        <div class="leg"><span class="shield"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>human&nbsp;reviewed</span><span>Appears <b>only on the credit grant</b> — a person signs every advance.</span></div>
+      </div>
+    </div>
+
+    <div class="honesty">
+      <div class="row-h">
+        <svg viewBox="0 0 24 24" stroke="#99A2AD"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <span><b>Honest by construction.</b> The model <b>sizes &amp; warns</b>; a human <b>grants</b> every loan (AI Act Annex III §5(b) + GDPR Art. 22).</span>
+      </div>
+      <div class="row-h">
+        <svg viewBox="0 0 24 24" stroke="#99A2AD"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        <span>All figures, clients and events here are <b>illustrative · synthetic</b>. Market stats use only sourced, blessed numbers (see <a style="color:#99A2AD" data-go="about" href="#">About</a>).</span>
+      </div>
+    </div>
+
+    <div class="rail-foot">
+      ESADE · Data-Driven Prototyping with AI<br>
+      <a href="../mockups/">static mockups</a> · <a href="../slides/">pitch deck</a> · <a href="../../">project home</a>
+    </div>
+  </aside>
+
+  <!-- ============================ CANVAS / PHONE ============================ -->
+  <main class="canvas">
+    <div class="device">
+      <div class="hint"><span class="pulse"></span>tap anything — it's live</div>
+      <div class="phone">
+        <div class="screen">
+
+          <!-- shared status bar -->
+          <div class="statusbar">
+            <span>9:41</span>
+            <div class="dots">
+              <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><path d="M8.5 2.5C10.6 2.5 12.5 3.3 14 4.7l1.1-1.1A9 9 0 0 0 1.9 3.6L3 4.7A7.5 7.5 0 0 1 8.5 2.5Z"/><path d="M8.5 6C9.6 6 10.6 6.4 11.3 7.1l1.1-1.1A6 6 0 0 0 4.6 6l1.1 1.1A4.5 4.5 0 0 1 8.5 6Z"/><circle cx="8.5" cy="9.5" r="1.6"/></svg>
+              <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="1" y="1.5" width="21" height="10" rx="3" stroke="currentColor" opacity=".4"/><rect x="3" y="3.5" width="15" height="6" rx="1.5" fill="currentColor"/><rect x="23.5" y="4.5" width="1.5" height="4" rx=".75" fill="currentColor" opacity=".5"/></svg>
+            </div>
+          </div>
+
+          <!-- shared app bar (JS-updated per view) -->
+          <div class="appbar">
+            <button class="back" id="appBack" style="display:none"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <div class="hi"><small id="appSmall">Good morning</small><b id="appTitle">Atlas Studio</b></div>
+            <div class="avatar" data-go="more" title="More">AS</div>
+          </div>
+
+          <!-- the stacked views -->
+          <div class="viewport" id="viewport">
+
+            <!-- ===================== HOME — three live truths ===================== -->
+            <section class="view active" data-view="home">
+              <div class="verdict" data-tour="verdict">
+                <div class="ok"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></div>
+                <div class="txt">You're <b>covered</b> through ~22 Jul. Next tight spot <b>early Aug</b> — we'll warn you in time.</div>
+              </div>
+
+              <div class="eyebrow">Your money, right now</div>
+
+              <!-- the single balance that lies -->
+              <div class="card lying" id="lyingCard" data-tour="lying">
+                <div class="lbl">One balance · 3 accounts</div>
+                <div class="v" id="lyingValue">€27,420</div>
+                <div class="hintline">This number is lying — tap to see the truth
+                  <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+                </div>
+              </div>
+
+              <!-- the three truths (revealed on tap) -->
+              <div class="truths" id="truths" hidden>
+                <div class="truth mine">
+                  <div class="tic"><svg viewBox="0 0 24 24"><path d="M3 7h18v12H3zM3 7l3-3h12l3 3M8 12h.01M16 12h.01"/></svg></div>
+                  <div class="tbody"><div class="t-k">Mine · spendable</div><div class="t-sub">genuinely yours to use today</div></div>
+                  <div class="t-v">€6,180</div>
+                </div>
+                <div class="truth tax">
+                  <div class="tic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+                  <div class="tbody"><div class="t-k">The tax office's <span class="lock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span></div><div class="t-sub">VAT + IRPF, auto-locked · estimate</div></div>
+                  <div class="t-v">€2,340</div>
+                </div>
+                <div class="truth incoming">
+                  <div class="tic"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></div>
+                  <div class="tbody"><div class="t-k">Not here yet · owed</div><div class="t-sub">4 clients · forecast from how each pays</div></div>
+                  <div class="t-v">€18,900</div>
+                </div>
+                <p style="text-align:center;color:var(--text-3);font-size:11.5px;margin-top:4px;font-family:var(--mono)">Three live truths replace one lying number.</p>
+              </div>
+
+              <div class="eyebrow">Tax, handled</div>
+              <div class="card" data-go="money">
+                <div class="row" style="padding:2px 0 6px;cursor:pointer">
+                  <div class="ic" style="background:var(--amber-dim);border-color:rgba(245,194,101,.3);color:var(--amber)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                  </div>
+                  <div class="mid"><b>€2,340 set aside this quarter</b><small>Every payment auto-swept · nothing to file by you</small></div>
+                  <span class="ai act">auto</span>
+                </div>
+              </div>
+
+              <div class="eyebrow">If you ever needed cash</div>
+              <!-- DEMOTED safe-to-borrow (never a filled CTA on Home) -->
+              <div class="card s2b" data-go="financing" data-tour="s2b">
+                <div class="s2b-ic"><svg viewBox="0 0 24 24"><path d="M3 10h18M7 14h4"/><rect x="3" y="5" width="18" height="14" rx="2.5"/></svg></div>
+                <div class="s2b-b"><div class="k">SAFE TO BORROW · pre-qualified, no application</div><div class="v"><b>€6,500</b> against a named invoice · <span class="dim">why only this?</span></div></div>
+                <div class="chev"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></div>
+              </div>
+
+              <div class="tally" data-tour="tally">You borrowed <b>€0</b> this quarter — and that's the win. <span style="color:var(--mint)">Saved ~€310 in avoided bridges.</span></div>
+            </section>
+
+            <!-- ===================== MONEY — accounts + tax-sweep + transactions ===================== -->
+            <section class="view" data-view="money">
+              <div class="chips">
+                <span class="chip on">Accounts</span><span class="chip">Cards</span><span class="chip">Activity</span>
+              </div>
+
+              <div class="card" style="margin-top:8px" data-tour="accounts">
+                <div class="acct">
+                  <div class="ac-ic" style="background:var(--mint-dim);color:var(--mint)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 7h18v12H3zM3 7l3-3h12l3 3"/></svg></div>
+                  <div class="ac-b"><b>Mine · spendable</b><small>Main account</small></div>
+                  <div class="ac-v" style="color:var(--mint)">€6,180</div>
+                </div>
+                <div class="acct pot" id="taxPot">
+                  <div class="ac-ic" style="background:var(--amber-dim);color:var(--amber)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+                  <div class="ac-b"><b>Set aside for tax</b><small>Locked sub-account · IVA + IRPF (estimate)</small></div>
+                  <div class="ac-v" style="color:var(--amber)" id="taxPotVal">€2,340</div>
+                </div>
+                <div class="acct">
+                  <div class="ac-ic" style="background:var(--blue-dim);color:var(--blue)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3v12M7 10l5 5 5-5"/></svg></div>
+                  <div class="ac-b"><b>Not here yet · owed</b><small>4 invoices outstanding</small></div>
+                  <div class="ac-v" style="color:var(--blue)">€18,900</div>
+                </div>
+              </div>
+
+              <button class="btn ghost" id="simulatePayment" data-tour="sweep">
+                <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+                Simulate: a €2,000 client payment lands
+              </button>
+              <p style="text-align:center;color:var(--text-3);font-size:11px;font-family:var(--mono);margin-top:8px">Watch the tax slice sweep itself away — no dashboard to read.</p>
+
+              <div class="eyebrow">SaaS &amp; AI spend · June <span class="ai predict">tracked</span></div>
+              <div class="card saas">
+                <div class="hd"><div><div style="font-size:13px;color:var(--text-2)">This month</div><div class="v">€1,842 <span style="font-size:12px;color:var(--amber)">▲ 12%</span></div></div></div>
+                <div class="it"><div class="lg" style="background:#D97757">A</div><div class="nm">Anthropic · Claude</div><div class="mm">€420</div></div>
+                <div class="it"><div class="lg" style="background:#0FA47F">O</div><div class="nm">OpenAI</div><div class="mm">€380</div></div>
+                <div class="it"><div class="lg" style="background:#111;border:1px solid var(--line)">▲</div><div class="nm">Vercel</div><div class="mm">€240</div></div>
+              </div>
+
+              <div class="eyebrow">Recent activity</div>
+              <div class="card">
+                <div class="row"><div class="ic">💳</div><div class="mid"><b>Stripe payout</b><small>Income · revenue</small></div><div class="amt in">+€4,200.00</div></div>
+                <div class="row"><div class="ic">🏢</div><div class="mid"><b>Office rent · WeWork</b><small>Operations</small></div><div class="amt">−€1,450.00</div></div>
+                <div class="row"><div class="ic">🤖</div><div class="mid"><b>Anthropic · Claude</b><small>SaaS &amp; AI</small></div><div class="amt">−€420.00</div></div>
+              </div>
+            </section>
+
+            <!-- ===================== SCAN / PAY ===================== -->
+            <section class="view" data-view="scan">
+              <div class="eyebrow">Just scanned · 1 invoice captured</div>
+              <div class="card" data-tour="scan">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <div style="display:flex;align-items:center;gap:10px">
+                    <div class="ic" style="width:44px;height:44px;border-radius:11px;background:var(--surface-2);display:grid;place-items:center;flex:none">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-2)" stroke-width="1.8"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 13h5M9.5 16.5h5"/></svg>
+                    </div>
+                    <div><b style="font-size:14.5px;font-weight:600;display:block">Acme Manufacturing</b><small style="color:var(--text-3);font-size:11.5px;font-family:var(--mono)">factura_0419.pdf · read in 0.8s</small></div>
+                  </div>
+                  <span class="ai act">act · undo</span>
+                </div>
+                <div style="margin-top:13px;border-top:1px solid var(--line-2);padding-top:8px">
+                  <div class="row" style="padding:8px 0;border:none"><div style="color:var(--text-3);font-size:11px;font-family:var(--mono);flex:1">VENDOR</div><b style="font-size:14px;font-weight:500">Acme Manufacturing</b></div>
+                  <div class="row" style="padding:8px 0"><div style="color:var(--text-3);font-size:11px;font-family:var(--mono);flex:1">AMOUNT</div><b class="bignum" style="font-size:16px">€3,420.00</b></div>
+                  <div class="row" style="padding:8px 0"><div style="color:var(--text-3);font-size:11px;font-family:var(--mono);flex:1">DUE</div><b class="mono" style="font-size:14px;font-weight:500">24 Jun</b></div>
+                  <div class="row" style="padding:8px 0"><div style="color:var(--text-3);font-size:11px;font-family:var(--mono);flex:1">VAT (21%)</div><b class="mono" style="font-size:14px;font-weight:500;color:var(--amber)">€593.55 <span style="font-size:9px;border:1px solid rgba(245,194,101,.4);border-radius:4px;padding:1px 4px">low-confidence</span></b></div>
+                </div>
+                <div style="margin-top:9px;display:flex;align-items:center;gap:6px;color:var(--text-3);font-size:11.5px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 3 5 13h6l-1 8 8-10h-6z"/></svg><span>AI extracted · tap any field to edit · the amber field needs a glance</span></div>
+                <button class="btn primary">Save &amp; schedule payment</button>
+              </div>
+
+              <div class="insight blue" style="margin-top:14px">
+                <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div>
+                <div><b>Paying now leaves €4,760.</b><p>Scheduling for the due date keeps more cushion through your <b>early-Aug tight spot</b>. <span class="ai recommend" style="margin-left:4px">recommend</span></p></div>
+              </div>
+            </section>
+
+            <!-- ===================== FINANCING — safe-to-borrow + don't-borrow ===================== -->
+            <section class="view" data-view="financing">
+              <div class="card borrow" data-tour="hero">
+                <div class="top"><span class="k">SAFE TO BORROW</span><span class="shield"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>human-reviewed grant</span></div>
+                <div class="amt">€6,500</div>
+                <div class="why">Pre-qualified · <b>no application.</b> Sizing is automatic — any loan is human-reviewed.</div>
+              </div>
+
+              <!-- the honest don't-borrow verdict (centerpiece) -->
+              <div class="eyebrow">Before you borrow</div>
+              <div class="card" style="border-color:rgba(127,231,166,.28)" data-tour="dontborrow">
+                <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                  <div class="ok" style="width:30px;height:30px;border-radius:50%;background:var(--mint-dim);display:grid;place-items:center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--mint)" stroke-width="2.2"><path d="m5 13 4 4L19 7"/></svg></div>
+                  <b style="font-family:var(--display);font-size:16px;font-weight:600">You probably don't need to.</b>
+                  <span class="ai recommend" style="margin-left:auto">recommend</span>
+                </div>
+                <p style="color:var(--text-2);font-size:13px;line-height:1.55"><b style="color:var(--text)">Studio Vermell</b> covers this in <b style="color:var(--text)">~9 days</b> — they pay 96% on-time. Bridging would cost <b style="color:var(--text)">€38</b> for nothing.</p>
+                <button class="btn ghost sm" style="margin-top:13px">Remind me on the 9th</button>
+                <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:10px;color:var(--text-3);font-size:11px;font-family:var(--mono)">If it slips, your €6,500 line is still here.</div>
+              </div>
+              <p style="text-align:center;color:var(--text-3);font-size:11px;font-family:var(--mono);margin-top:8px">We win when you borrow less — so we say so.</p>
+
+              <div class="eyebrow">Or bridge a specific invoice</div>
+              <div class="card">
+                <div class="recv" data-go="bridge">
+                  <div class="rv-ic">🏭</div>
+                  <div class="rv-b"><b>Acme Studios · #2025-118</b><small>€8,400 · due in 45 days</small></div>
+                  <div class="rv-amt"><div class="a">€8,400</div><div class="e late">pays ~+18d</div></div>
+                </div>
+                <div class="recv" data-go="payer">
+                  <div class="rv-ic">📡</div>
+                  <div class="rv-b"><b>Studio Vermell · #2025-121</b><small>€9,200 · sent 30 May</small></div>
+                  <div class="rv-amt"><div class="a">€9,200</div><div class="e">pays ~+6d</div></div>
+                </div>
+                <div class="recv" data-go="invoices">
+                  <div class="rv-ic">🏦</div>
+                  <div class="rv-b"><b>Caixa Studio · #2025-104</b><small>€5,700 · sent 21 May</small></div>
+                  <div class="rv-amt"><div class="a">€5,700</div><div class="e risk">distress flag</div></div>
+                </div>
+              </div>
+              <p style="text-align:center;color:var(--text-3);font-size:11px;font-family:var(--mono);margin-top:10px">Every bridge is priced on a <b style="color:var(--text-2)">named, SII-confirmed receivable</b> — not a blunt credit score.<br>Loss band 1–3% (vs 5.4% unsecured NPL · EBA Jun 2025).</p>
+            </section>
+
+            <!-- ===================== BRIDGE — 9-agent sequence (sub) ===================== -->
+            <section class="view sub" data-view="bridge">
+              <div class="flow-head">
+                <div style="font-size:13px;color:var(--text-2)">Bridge against a named receivable</div>
+                <div class="fh-recv">
+                  <div class="rv-ic" style="width:34px;height:34px;border-radius:10px;background:var(--surface-2);display:grid;place-items:center;font-size:14px">🏭</div>
+                  <div><b style="font-size:13.5px">Acme Studios · #2025-118</b><div style="font-size:11px;color:var(--text-3);font-family:var(--mono)">CIF B-12345678</div></div>
+                  <span class="a">€8,400</span>
+                </div>
+              </div>
+
+              <button class="btn primary" id="runAgents" data-tour="run">
+                <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9z"/></svg>
+                Let the agents take a look
+              </button>
+
+              <div class="eyebrow" style="margin-top:18px">Nine agents · application → grant <span class="dim" style="text-transform:none;letter-spacing:0;font-family:var(--sans);font-size:10px">· it sizes &amp; warns, a human grants</span></div>
+              <div class="agents" id="agents"><!-- agents injected by JS --></div>
+
+              <div id="gateMount"></div>
+            </section>
+
+            <!-- ===================== MORE (hub) ===================== -->
+            <section class="view" data-view="more">
+              <div class="eyebrow">Everything else</div>
+              <div class="card" style="padding:6px 16px">
+                <div class="row tap" data-go="invoices"><div class="ic">🧾</div><div class="mid"><b>Invoices &amp; Concurso Radar</b><small>AR / AP · client distress lights</small></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+                <div class="row tap" data-go="services"><div class="ic">🤝</div><div class="mid"><b>Services</b><small>Vetted partners · route, don't own</small></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+                <div class="row tap" data-go="pricing"><div class="ic">🏷️</div><div class="mid"><b>Plans &amp; Tax-Sweep+</b><small>What this costs vs a gestor</small></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+                <div class="row tap" data-go="about"><div class="ic">📐</div><div class="mid"><b>About this demo</b><small>Who it's for · the numbers · what's real</small></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+              </div>
+
+              <div class="eyebrow">Who NetBank is for</div>
+              <div class="stat-ribbon">
+                <div class="stat"><div class="sv">3.43M</div><div class="sk">autónomos in Spain</div><div class="ss">lamoncloa.gob.es · Dec 2025</div></div>
+                <div class="stat"><div class="sv">~81 days</div><div class="sk">avg payment period vs a 60-day legal limit — 34% over</div><div class="ss">CEPYME · 2025</div></div>
+              </div>
+            </section>
+
+            <!-- ===================== INVOICES + Concurso Radar (sub) ===================== -->
+            <section class="view sub" data-view="invoices">
+              <div class="eyebrow">Concurso Radar · your clients <span class="ai predict">monitored</span></div>
+              <div class="card" data-tour="radar">
+                <div class="radar-head" style="padding:2px 0 12px">
+                  <div class="scan"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/><circle cx="12" cy="12" r="3"/></svg></div>
+                  <div class="rb"><b>Silent when all is well</b><small>matched daily by NIF · BORME · RAI</small></div>
+                  <span class="badge"><i class="dot"></i>3 green</span>
+                </div>
+                <div class="row client-row" id="clientVermell"><div class="ic">📡</div><div class="mid"><b>Studio Vermell</b><small>pays 96% on-time · ~+6d</small></div><span class="light g"></span></div>
+                <div class="row client-row"><div class="ic">🏭</div><div class="mid"><b>Acme Studios</b><small>pays ~18d late · volatile</small></div><span class="light g"></span></div>
+                <div class="row client-row"><div class="ic">🛍️</div><div class="mid"><b>Mango Retail</b><small>pays ~+18d · steady</small></div><span class="light g"></span></div>
+                <div class="row client-row tap" id="clientCaixa" data-go="payer"><div class="ic">🏦</div><div class="mid"><b>Caixa Studio</b><small id="caixaSub">pays ~+31d · slow</small></div><span class="light g" id="caixaLight"></span></div>
+              </div>
+
+              <button class="btn ghost" id="simulateDistress" data-tour="distress">
+                <svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+                Simulate: a public distress filing on Caixa Studio
+              </button>
+
+              <div class="eyebrow">Owed to you · incoming</div>
+              <div class="card">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px"><span style="color:var(--text-2);font-size:13px">Outstanding · 4 clients</span><span class="bignum" style="font-size:18px;color:var(--blue)">€18,900</span></div>
+                <div class="recv" data-go="payer"><div class="rv-ic">📡</div><div class="rv-b"><b>Studio Vermell</b><small>€9,200 · sent 30 May</small></div><div class="rv-amt"><div class="a">€9,200</div><div class="e">expected ~+6d</div></div></div>
+                <div class="recv"><div class="rv-ic">🛍️</div><div class="rv-b"><b>Mango Retail</b><small>€6,400 · sent 2 Jun</small></div><div class="rv-amt"><div class="a">€6,400</div><div class="e late">expected ~+18d</div></div></div>
+                <div class="recv" id="recvCaixa"><div class="rv-ic">🏦</div><div class="rv-b"><b>Caixa Studio</b><small>€5,700 · sent 21 May</small></div><div class="rv-amt"><div class="a">€5,700</div><div class="e" id="recvCaixaE">expected ~+31d</div></div></div>
+              </div>
+            </section>
+
+            <!-- ===================== PAYER DETAIL (sub) ===================== -->
+            <section class="view sub" data-view="payer">
+              <div class="payer-hero" data-tour="payerhero">
+                <div class="pn">ACME S.L. <span class="badge" id="payerFlag"><i class="dot"></i>green</span></div>
+                <div class="pnif">client · CIF B-12345678 · 14 invoices observed</div>
+                <div class="psum">Pays <b>~18 days late</b> on average — and that's <b>steady</b>, so it's predictable.</div>
+                <div class="pobs">This is about your <b>client</b>, not you · reliability sharpens every time they pay.</div>
+              </div>
+
+              <div class="eyebrow">How they pay · transparent, not a black box</div>
+              <div class="card comp">
+                <div class="crow"><span class="ck">Avg days late</span><span class="ctrack amber"><i style="width:42%"></i></span><span class="cv">+18d</span></div>
+                <div class="crow"><span class="ck">Consistency</span><span class="ctrack"><i style="width:78%"></i></span><span class="cv">steady</span></div>
+                <div class="crow"><span class="ck">Paid on-time</span><span class="ctrack"><i style="width:64%"></i></span><span class="cv">64%</span></div>
+                <div class="crow"><span class="ck">Paid &gt;30d late</span><span class="ctrack amber"><i style="width:12%"></i></span><span class="cv">12%</span></div>
+              </div>
+
+              <div class="eyebrow">Payment history · each dot is one invoice</div>
+              <div class="card">
+                <div class="spark" id="spark">
+                  <div class="base"></div><div class="baselbl">due date</div>
+                  <!-- dots injected by JS -->
+                </div>
+                <p style="color:var(--text-3);font-size:10.5px;font-family:var(--mono);text-align:center">above = paid late · below = paid early · tap a dot</p>
+              </div>
+
+              <!-- expandable why -->
+              <div class="why-row" id="whyRow">
+                <div class="wh"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>Why expect ~+18 days?<span class="ai predict">predict</span><span class="arrow"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span></div>
+                <div class="wb"><div class="wb-inner">
+                  <ul>
+                    <li>Mean days-late <b>+18</b> with <b>low volatility</b> (their strongest signals)</li>
+                    <li><b>No public-distress filing</b> on their NIF (BORME / RAI clean)</li>
+                    <li>14 invoices observed — <b>enough history</b> to trust the estimate</li>
+                  </ul>
+                  <p style="margin-top:8px;color:var(--text-3)">Drawn from interpretable model coefficients — the same explanation a human reviewer would see (GDPR Art. 22).</p>
+                </div></div>
+              </div>
+
+              <!-- closed loop / flywheel -->
+              <div class="eyebrow">The closed loop</div>
+              <div class="card loop-card" data-tour="flywheel">
+                <div style="display:flex;align-items:center;gap:8px"><b style="font-size:13.5px">Invoice #2025-097</b><span class="ai predict" style="margin-left:auto">predicted</span></div>
+                <div class="loop-vs">
+                  <div class="pv"><div class="k">Predicted</div><div class="d">~12 Aug ±4</div></div>
+                  <div class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                  <div class="pv real" id="realCell" style="opacity:.3"><div class="k">Actually paid</div><div class="d" id="realDate">—</div></div>
+                </div>
+                <button class="btn outline sm" id="markPaid">Mark this invoice paid</button>
+                <div class="loop-tick" id="loopTick" style="display:none"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/></svg>Model updated · next prediction tightened · logged append-only</div>
+              </div>
+            </section>
+
+            <!-- ===================== SERVICES (sub) ===================== -->
+            <section class="view sub" data-view="services">
+              <div class="search"><svg width="15" height="15" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Find a gestor, lawyer, CFO…</div>
+
+              <div class="eyebrow">Next best move <span class="ai recommend">recommend</span></div>
+              <div class="card nbs" data-tour="nbs">
+                <div class="hd"><span class="eyb">From a real cash-flow signal</span></div>
+                <div class="reason">3 invoices to <b>Caixa Studio</b> are now <b>90+ days overdue</b> — <b>€8,400</b> you've earned is stuck, and chasing it yourself hasn't moved them.</div>
+                <div class="svc">
+                  <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/><path d="M12 8v4l3 2"/></svg></div>
+                  <div class="nm"><b>A vetted collections partner</b><small>No win, no fee · disclosed, covenant-clean care</small></div>
+                </div>
+                <div class="deeplink"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Meet the collections partner</div>
+                <div class="src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 3 5 13h6l-1 8 8-10h-6z"/></svg>Shows only on a real signal — never as an upsell.</div>
+              </div>
+
+              <div class="insight blue" style="margin-top:12px">
+                <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div>
+                <div><b>Vetted, not commission-driven.</b><p>You book direct. NetBank takes a flat per-lead fee — <b>never a cut of the work</b> — and your books stay in sync.</p></div>
+              </div>
+
+              <div class="eyebrow">Partners for Atlas Studio</div>
+              <div class="card"><div class="row" style="border:none;padding:2px 0 10px"><div class="ic">📊</div><div class="mid"><b>Fractional CFO</b><small>from €400 / mo</small></div><span class="ai recommend">recommend</span></div><p style="color:var(--text-2);font-size:12.5px;line-height:1.5">A part-time finance lead who reads your cash-flow with you.</p><button class="btn ghost sm" style="margin-top:11px">Book a fit call</button></div>
+              <div class="card"><div class="row" style="border:none;padding:2px 0 10px"><div class="ic">⚖️</div><div class="mid"><b>Late-payment lawyer</b><small>30-min intro</small></div><span class="badge"><i class="dot"></i>vetted</span></div><p style="color:var(--text-2);font-size:12.5px;line-height:1.5">Client agreements &amp; late-payment terms — useful when clients pay ~81 days late.</p><button class="btn ghost sm" style="margin-top:11px">Book a 30-min call</button></div>
+            </section>
+
+            <!-- ===================== PRICING (sub) ===================== -->
+            <section class="view sub" data-view="pricing">
+              <div class="eyebrow">Tax-Sweep+ · what it costs</div>
+              <p class="price-anchor">A traditional gestor runs <s>€60–100/mo</s>. NetBank's tier is <b>a fraction of that</b> — and the set-aside just happens.</p>
+
+              <div class="tier"><div class="p">€9<small>/mo</small></div><div class="td"><b>Solo</b><small>Auto set-aside · readiness export</small></div></div>
+              <div class="tier featured"><div class="p">€12<small>/mo</small></div><div class="td"><b>Studio <span class="ai recommend" style="vertical-align:middle">popular</span></b><small>+ Concurso Radar on all clients</small></div></div>
+              <div class="tier"><div class="p">€15<small>/mo</small></div><div class="td"><b>Team</b><small>+ gestor handoff · multi-account</small></div></div>
+
+              <div class="insight mint" style="margin-top:16px">
+                <div class="ic"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                <div><b>We never file for you.</b><p>Tax-Sweep+ sets money aside and exports a clean <b>modelo-303 / IRPF</b> readiness pack for your gestor. The set-aside is an estimate — filing stays with a human professional.</p></div>
+              </div>
+
+              <p class="about-note" style="text-align:center;margin-top:14px"><b>[to validate]</b> — these tiers are a price hypothesis. Willingness-to-pay is our #1 open question.</p>
+              <p class="about-note" style="text-align:center">Context: Qonto charges €9 / €19 / €39 / mo for comparable business plans.</p>
+            </section>
+
+            <!-- ===================== ABOUT / numbers (sub) ===================== -->
+            <section class="view sub" data-view="about">
+              <div class="payer-hero">
+                <div class="pn" style="font-size:19px">What's real here</div>
+                <div class="psum" style="font-size:13.5px;color:var(--text-2)">This is a <b style="color:var(--text)">clickable prototype</b>, not a live bank. The thesis is real and evidenced; the data is staged so you can see the mechanism.</div>
+              </div>
+
+              <div class="eyebrow">The thesis in one line</div>
+              <div class="card"><p style="font-size:14px;line-height:1.6;color:var(--text)">One <b style="color:var(--mint)">object</b> (the named Payer) · one <b style="color:var(--mint)">loop</b> (every realized payment date retrains the model) · one <b style="color:var(--mint)">objective</b> (your financial health — we win when you borrow less).</p>
+              <p style="font-size:12px;color:var(--text-3);margin-top:10px;line-height:1.5">Invoice data is a <b>commodity</b> in Spain (Verifactu/SII) — so the moat is the closed loop + the objective, <b>not</b> "only we see your invoices."</p></div>
+
+              <div class="eyebrow">Blessed numbers only</div>
+              <div class="card" style="padding:8px 16px">
+                <div class="row" style="padding:11px 0"><div class="mid"><b>3.43M autónomos</b><small>Spain, Dec 2025 · lamoncloa.gob.es</small></div></div>
+                <div class="row" style="padding:11px 0"><div class="mid"><b>~81 days vs 60-day limit</b><small>avg payment period, 34% over · CEPYME 2025</small></div></div>
+                <div class="row" style="padding:11px 0"><div class="mid"><b>1–3% vs 5.4%</b><small>factoring loss band vs unsecured NPL · EBA Jun 2025</small></div></div>
+                <div class="row" style="padding:11px 0"><div class="mid"><b>€9–15/mo vs €60–100/mo</b><small>Tax-Sweep+ hypothesis vs a gestor</small></div></div>
+              </div>
+
+              <div class="eyebrow">The regulatory split</div>
+              <div class="card">
+                <div style="display:flex;gap:11px;align-items:flex-start"><span class="ai predict" style="flex:none;margin-top:1px">core</span><p style="font-size:12.5px;color:var(--text-2);line-height:1.55">The non-credit core (truths, tax-sweep, sizing, OCR) is <b style="color:var(--text)">autonomous</b> — outside AI Act Annex III.</p></div>
+                <div style="display:flex;gap:11px;align-items:flex-start;margin-top:11px;padding-top:11px;border-top:1px solid var(--line-2)"><span class="shield" style="flex:none"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>grant</span><p style="font-size:12.5px;color:var(--text-2);line-height:1.55">The credit grant is <b style="color:var(--text)">human-on-the-loop</b> — Annex III §5(b) high-risk + GDPR Art. 22. A person signs every advance; declines carry a human-signed reason.</p></div>
+              </div>
+
+              <p class="about-note" style="text-align:center;margin:16px 2px 4px">The cross-customer payer bureau is <b>roadmap-only · unproven [to validate]</b> — not shown here as a current capability.</p>
+            </section>
+
+          </div><!-- /viewport -->
+
+          <!-- shared tab bar -->
+          <nav class="tabbar" id="tabbar">
+            <button class="tab on" data-go="home"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Home</button>
+            <button class="tab" data-go="money"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg>Money</button>
+            <button class="tab-fab" data-go="scan" aria-label="Scan or pay"><span class="fab"><svg viewBox="0 0 24 24"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8"/><path d="M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8"/><path d="M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16"/><path d="M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/><path d="M4 12h16"/></svg></span><small>Scan · Pay</small></button>
+            <button class="tab" data-go="financing"><svg viewBox="0 0 24 24"><path d="M13 3 5 13h6l-1 8 8-10h-6z"/></svg>Financing</button>
+            <button class="tab" data-go="more"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>More</button>
+          </nav>
+
+        </div><!-- /screen -->
+      </div><!-- /phone -->
+    </div><!-- /device -->
+  </main>
+</div><!-- /stage -->
+
+<!-- spotlight + coach (guided tour) -->
+<div class="spot" id="spot"></div>
+<div class="coach" id="coach">
+  <div class="c-top">
+    <span class="c-step" id="coachStep">Step 1 / 9</span>
+    <div class="c-bar"><i id="coachBar" style="width:11%"></i></div>
+    <button class="c-x" id="coachExit">✕ exit</button>
+  </div>
+  <h3 id="coachTitle">Welcome</h3>
+  <p id="coachBody">…</p>
+  <div class="c-nav">
+    <button class="back" id="coachBack">Back</button>
+    <span class="spacer"></span>
+    <button class="next" id="coachNext">Next →</button>
+  </div>
+</div>
+
+<script src="demo.js"></script>
+</body>
+</html>

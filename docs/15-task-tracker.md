@@ -46,16 +46,16 @@ Update docs/15-task-tracker.md: claim NET-03 for <name>, started <YYYY-MM-DD>, a
 
 ## NET-01 - UI Mobile App / Demo
 
-- [ ] Claimed / in progress
-- [ ] Done
-- Status: Not started
-- Owner:
-- Started:
-- Last updated:
-- Completed:
-- Branch / PR / output:
+- [x] Claimed / in progress
+- [x] Done
+- Status: Review
+- Owner: Claude session (cnob)
+- Started: 2026-06-22
+- Last updated: 2026-06-22
+- Completed: 2026-06-22
+- Branch / PR / output: `design/demo/` (index.html + demo.css + demo.js) · linked as the featured card on the root landing page · live: https://builtbycnob.github.io/netbank/design/demo/
 - Source docs: `docs/02-mobile-experience.md`, `docs/03-design-spec.md`, `docs/04-slides-mobile-experience.md`, `docs/09-final-deck.md`
-- Current note:
+- Current note: **DONE 2026-06-22.** Built an INTERACTIVE single-phone clickable prototype (vs the static 8-frame gallery in `design/mockups/`). Spec extracted from canonical docs via a 5-agent workflow; foregrounds the CURRENT locked thesis. Real tab nav (Home · Money · Scan/Pay · Financing · More) + 11 views + a 90-second guided tour with spotlight/coach. **Six scripted product moments, all Playwright-verified live:** (1) three-truths reveal — tap the lying €27,420 → splits into mine/tax/not-here-yet; (2) Tax-Sweep+ auto-sweep animation (pot €2,340→€2,760 + IVA toast, "estimate" tag); (3) Concurso Radar flip → bridge interlock (Caixa flips red, "won't bridge"); (4) per-Payer reliability detail (transparent components + payment-history sparkline + expandable Art.22 "why" + flywheel "predicted vs actual → model updated"); (5) nine-agent bridge sequence ending deliberately at the human-review gate (AML + grant padlocks, _asof tag, sizes-&-warns); (6) honest don't-borrow verdict + avoided-borrowing tally. Honesty visible by construction: AI-legibility chips, human-reviewed shield locked to the grant, illustrative/synthetic labels, blessed-numbers-only. Mobile-responsive (rail stacks). **Open: team review.** Avoided burn/runway-as-core-object per docs/11 locked decisions.
 
 Build the mobile app/demo experience with only the basic backend or mocked functionality needed to make the concept understandable. The demo should prioritize the decision-driven flow already specified in the docs: Home / Command Center, Money, Scan/Pay, Financing, Invoices, Services, and the late-invoice to safe-to-borrow / bridge flow.
 
@@ -329,4 +329,5 @@ Definition of done:
 | 2026-06-17 | NET-05 Task A done: deck-design research + plan (docs/16 principles + docs/17 pitch-spine×rubric rebuild plan, 11 slides / 10-12 min, labeled-hypothetical traction/funding). Awaiting team sign-off before rebuild. Added collaborator RUISR (Rui, write). | Claude session (cnob) |
 | 2026-06-17 | NET-05 Task B done: gold-standard deck rebuilt (@edf704c) + adversarial-audit fixes (@3c9b825). 11-slide pitch spine, assertion-evidence, real SVG diagrams + AUC-accurate S7 charts, scale-hack deleted, self-hosted fonts. 3 workflows (research / content-draft+verify / audit). Status → Review (team review + .pptx open). | Claude session (cnob) |
 | 2026-06-17 | Late fixes: course label **ESADE MIM → ESADE** (not a MIM course) across deck/landing/README/CLAUDE.md/docs (@c70767d); **team is SIX** Corrado/Navid/Manon/Marti/Rui/Tim — close slide + S26 + CLAUDE.md (@a7d652c). NEXT (post session-relay) = **big adversarial clarity/quality/gap review** of the deck (user: can be much clearer / explained differently). Manon needs a GitHub username to be invited. | Claude session (cnob) |
+| 2026-06-22 | NET-01 **DONE** → interactive clickable demo at `design/demo/` (index.html + demo.css + demo.js), featured on the landing page. One navigable phone + guided tour; 6 scripted moments (three-truths reveal, Tax-Sweep+ animation, Concurso Radar→bridge interlock, per-Payer reliability + flywheel, 9-agent bridge→human gate, don't-borrow verdict). Spec extracted via 5-agent workflow; honesty-by-construction (chips, grant-only shield, illustrative/synthetic, blessed numbers); all moments Playwright-verified. Status → Review (team review). | Claude session (cnob) |
 | 2026-06-18 | NET-05 **clarity review + apply**: 14-agent clarity workflow → user picked **"one object · one loop · one objective" mechanism spine + plain-English relabel** (all 11 slides). Applied: S5 plain bands (satellite/loop-arrow deleted), S6 dropped "only" + mint-discipline, S7 "lower=honest" banner, **S8 cost-to-serve→cost-to-income unit fix**, S9 self-describing tiers (no "only moat"), S10 WTP-in-words, S11 neutral team + bookend, deck-wide breadcrumb. 4-agent re-audit (Numbers PASS; Rubric/Honesty/Comprehension pass-with-fixes, all applied). 11/11 Playwright-verified, build 0 warnings. Manon still needs a GitHub username to be invited. | Claude session (cnob) |

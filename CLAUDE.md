@@ -55,6 +55,14 @@ Live prototype: https://builtbycnob.github.io/netbank/ (8 dark mobile screens)
 | styles.css | Mockup stylesheet (Geist + Bricolage Grotesque, dark theme, Mercury-structured) | CSS or visual-polish tasks |
 | image-briefs.json | Structured image-brief definitions for mockup assets | Mockup-generation or asset tasks |
 
+### design/demo/
+
+| File | What it contains | When to read |
+|------|-----------------|--------------|
+| index.html | Interactive single-phone clickable prototype (NET-01): one navigable app with real tab nav + a guided tour; views = Home (three-truths), Money/Tax-Sweep+, Scan, Financing (don't-borrow + named bridge), Invoices/Concurso Radar, Payer detail, 9-agent bridge flow, Services, Pricing, About | Any interactive-demo, NET-01, or product-walkthrough task |
+| demo.css | Demo design system (extends mockup tokens: Bricolage/Geist, dark instrument-panel, AI-legibility chips, human-reviewed shield, spotlight/coach) | Demo styling tasks |
+| demo.js | Behaviour: view nav, the 6 scripted moments (truths reveal · tax-sweep · radar flip · payer flywheel · agent sequence→human gate · don't-borrow), guided tour. All data illustrative/synthetic; blessed numbers only | Demo behaviour or content tasks |
+
 ---
 
 ## Locked decisions - do not drift from these

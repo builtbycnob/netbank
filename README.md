@@ -34,6 +34,7 @@ This split is what lets the "AI-factory" cost economics and EU compliance coexis
 - ✅ Client + value proposition — **converged & evidence-backed** ([`docs/01`](docs/01-client-and-evidence.md))
 - ✅ Mobile experience — HMW + decision map + screen map ([`docs/02`](docs/02-mobile-experience.md)) · design spec ([`docs/03`](docs/03-design-spec.md)) · slides ([`docs/04`](docs/04-slides-mobile-experience.md))
 - ✅ **8 dark mockups live** → https://builtbycnob.github.io/netbank/ (3 home concepts A/B/C — **A "Command Center" recommended**)
+- ✅ **Interactive demo live** → https://builtbycnob.github.io/netbank/design/demo/ — one clickable phone + 90s guided tour: three-truths reveal, Tax-Sweep+, Concurso Radar, per-Payer reliability + flywheel, nine-agent bridge to the human gate, honest don't-borrow ([`design/demo/`](design/demo/))
 - ✅ **Services v2 + center Scan/Pay nav** — AI "next-best-service" card (signal → service, no review shield) + a 4-tabs-and-center-action bottom nav across all 8 screens
 - ✅ Predictive AI ([`docs/05`](docs/05-predictive-ai.md)) · data frontier ([`docs/06`](docs/06-predictive-frontier.md)) · services marketplace ([`docs/07`](docs/07-services-marketplace.md))
 - ✅ **Agentic loan journey** — Role of AI: 9-agent system + the "collections disappears" thesis + drop-in deck slide ([`docs/08`](docs/08-agentic-loan-journey.md))
